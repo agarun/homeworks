@@ -1,6 +1,7 @@
-Homeworks, notes, and classwork exercises from a semester at AppAcademy!
+Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
-### Homeworks
+### Homework & Coursework
 
 #### Week 1  
-[Basic Recursion](https://github.com/agarun/homeworks/blob/master/homeworks/W1D3/recursion.rb)
+D3 - [Basic Recursion](https://github.com/agarun/homeworks/blob/master/homeworks/W1D3/recursion.rb)
+D5 - [Abstract Data Types](https://github.com/agarun/homeworks/blob/master/homeworks/W1D5/abstract_data_types.rb)
