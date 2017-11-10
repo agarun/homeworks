@@ -22,11 +22,11 @@ stack.add(5)
 stack.add(8)
 stack.add(2)
 stack.add(1)
-p stack.show # => [5, 8, 2, 1]
-p stack.remove # => 1
-p stack.show # => [5, 8, 2]
+p stack.show == [5, 8, 2, 1]
+p stack.remove == 1
+p stack.show == [5, 8, 2]
 stack.add(19)
-p stack.show # => [5, 8, 2, 19]
+p stack.show == [5, 8, 2, 19]
 
 # alternatives
 # class Stack
@@ -65,11 +65,11 @@ queue.enqueue(5)
 queue.enqueue(8)
 queue.enqueue(2)
 queue.enqueue(1)
-p queue.show # => [5, 8, 2, 1]
-p queue.dequeue # => 5
-p queue.show # => [8, 2, 1]
+p queue.show == [5, 8, 2, 1]
+p queue.dequeue == 5
+p queue.show == [8, 2, 1]
 queue.enqueue(19)
-p queue.show # => [8, 2, 1, 19]
+p queue.show == [8, 2, 1, 19]
 
 # alternatives
 # class Queue
@@ -120,11 +120,13 @@ p "map"
 map = Map.new
 map.assign(:a, 1)
 map.assign(:b, 2)
-p map.lookup(:a) # => 1
+p map.lookup(:a) == 1
 map.assign(:c, 3)
-p map.show # => [[:a, 1], [:b, 2], [:c, 3]]
-p map.remove(:b) # => 2
-p map.show # => [[:a, 1], [:c, 3]]
+p map.show == [[:a, 1], [:b, 2], [:c, 3]]
+p map.remove(:b) == 2
+p map.show == [[:a, 1], [:c, 3]]
+map.assign(:c, 5)
+p map.show == [[:a, 1], [:c, 5]]
 
 # notes & related problems:
 ## implementing stack with queue (leetcode 225) https://github.com/agarun/algorithms/blob/master/leetcode/Leetcode%20225.%20Implement%20Stack%20using%20Queues.rb
