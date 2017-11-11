@@ -148,9 +148,7 @@ p permutations([1, 2, 3]) == [1, 2, 3].permutation.to_a
 p permutations([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5].permutation.to_a
 
 def bsearch(arr, target)
-  low = 0
-  high = arr.length - 1
-  mid = (low + high) / 2
+  mid = arr.size / 2
   mid_val = arr[mid]
 
   return mid if target == arr[mid]
@@ -199,3 +197,65 @@ end
 
 p "merge sort tests"
 p merge_sort((1..1000).to_a.shuffle) == (1..1000).to_a
+
+# greedy
+# def make_change(target, coins = [25, 10, 5, 1])
+#   change = []
+#
+#   first_coin = coins.first
+#   count = amount / first_coin
+#   count.times { change << coin }
+#   amount -= count * coin
+#
+#   if amount > 0
+#     change += make_change(amount, coins.drop(1)) # use the other coins
+#   end
+#
+#   change
+# end
+
+# assuming coins are in reverse sorted order
+def make_change(target_amount, coins = [25, 10, 5, 1])
+  return [] if target_amount == 0 # no money to make change for
+
+  best_change = nil
+
+  coins.each_with_index do |coin, index|
+    next if coin > target_amount
+
+    # use the current coin to calculate change -> explore every possible result
+    # check the bigger coins first (so we iterate from biggest to smallest)
+    # this is done with `coins.drop(index)` to avoid getting a result that is
+    # simply a permutation of an earlier result with a smaller value first
+    ## e.g. avoid having [10, 1, 1, 1, 1] as a result and [1, 10, 1, 1]
+    change_for_remainder = make_change(target_amount - coin, coins.drop(index))
+
+    # in case target_amount *can't* be made with coins
+    # (e.g. target: 5, coins AFTER dropping: 2 --> errors with `nil` on line 237)
+    next if change_for_remainder.nil?
+
+    change = [coin] + change_for_remainder # a change sequence for target
+
+    # use the result that uses the *least* coins to make the `target_amount`
+    if best_change.nil? || change.size < best_change.size
+      best_change = change
+    end
+  end
+
+  best_change
+end
+
+p "make_change tests"
+
+# assume coins in descending order
+p make_change(14, [10, 7, 1]) == [7, 7]
+
+# explore each option with each coin -> best of:
+# why? because [7, 7] is preferable over [10, 1, 1, 1, 1]
+# [10] + make_change(4)
+# [7] + make_change(7)
+# [1] + make_change(13)
+
+p make_change(99, [25, 10, 5, 1]) == [25, 25, 25, 10, 10, 1, 1, 1, 1]
+
+p make_change(5, [2]).nil?
