@@ -5,6 +5,7 @@ class Stack
 
   def add(element)
     @stack.push(element)
+    show
   end
 
   def remove
@@ -48,6 +49,7 @@ class Queue
 
   def enqueue(element)
     @queue.push(element)
+    show
   end
 
   def dequeue
