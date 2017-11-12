@@ -72,11 +72,12 @@ class Simon
   end
 
   def round_success_message
+    system("clear") || system("cls")
     puts "Round #{sequence_length} is over."
   end
 
   def game_over_message
-    puts "Game over. You lasted #{sequence_length - 1} rounds.\nYou meant to write: #{colors_message(seq)}"
+    puts "Game over. You lasted #{sequence_length - 2} rounds.\nYou meant to write: #{colors_message(seq)}"
   end
 
   def colors_message(sequence)
