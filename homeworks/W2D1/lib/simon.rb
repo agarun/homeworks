@@ -16,25 +16,25 @@ class Simon
 
     game_over_message
     reset_game
-    # play
+    # play # uncomment to keep playing the game after one loss
   end
 
   def take_turn
     show_sequence
     require_sequence
-    round_success_message
 
+    round_success_message
     self.sequence_length += 1
   end
 
   def show_sequence
     add_random_color
-    sleep(4)
+    sleep(2.75)
 
     seq.each do |color|
       system("clear") || system("cls")
       puts color
-      sleep(1)
+      sleep(0.9)
     end
   end
 
@@ -52,7 +52,7 @@ class Simon
           break
         end
       rescue
-        puts "Try entering a valid color. Pick from #{colors_message}"
+        puts "Try entering a valid color.\nPick from: #{colors_message(COLORS)}"
         retry
       end
     end
@@ -76,11 +76,11 @@ class Simon
   end
 
   def game_over_message
-    puts "Game over. You lasted #{sequence_length - 1} rounds.\nYou meant to write #{colors_message}."
+    puts "Game over. You lasted #{sequence_length - 1} rounds.\nYou meant to write: #{colors_message(seq)}"
   end
 
-  def colors_message
-    COLORS.map { |clr| clr[0] }.join(", ")
+  def colors_message(sequence)
+    sequence.map { |clr| clr[0] }.join(", ")
   end
 
   def reset_game
