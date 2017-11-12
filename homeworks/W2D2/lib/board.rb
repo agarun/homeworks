@@ -27,19 +27,19 @@ class Board
   def make_move(start_pos, current_player_name)
     stones, @cups[start_pos] = @cups[start_pos], []
 
-    idx = start_pos + 1
+    idx = start_pos
     until stones.empty?
+      idx = (idx + 1) % cups.size
+
       # if current player visits *opponent* player's store, don't add a stone
       unless (STORE_CUPS.last == idx && current_player_name == @name1) ||
              (STORE_CUPS.first == idx && current_player_name == @name2)
         @cups[idx] << stones.pop
       end
-
-      idx = (idx + 1) % cups.size
     end
 
     render
-    next_turn((idx - 1) % cups.size, current_player_name)
+    next_turn(idx % cups.size, current_player_name)
   end
 
   def next_turn(ending_cup_idx, current_player_name)
