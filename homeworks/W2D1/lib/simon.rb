@@ -32,14 +32,14 @@ class Simon
     sleep(2.75)
 
     seq.each do |color|
-      system("clear") || system("cls")
+      clear_screen
       puts color
       sleep(1)
     end
   end
 
   def require_sequence
-    system("clear") || system("cls")
+    clear_screen
     puts "What was the sequence?\nType each color's first letter individually:"
 
     seq.each do |correct_color|
@@ -67,12 +67,12 @@ class Simon
   end
 
   def welcome_message
-    system("clear") || system("cls")
+    clear_screen
     puts "Let's play Simon.\nYou'll see some colors in some order.\nRemember the order!"
   end
 
   def round_success_message
-    system("clear") || system("cls")
+    clear_screen
     puts "Round #{sequence_length} is over."
   end
 
@@ -88,6 +88,10 @@ class Simon
     @sequence_length = 1
     @seq = []
     @game_over = false
+  end
+
+  def clear_screen
+    system("clear") || system("cls")
   end
 end
 
