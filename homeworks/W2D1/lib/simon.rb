@@ -34,7 +34,7 @@ class Simon
     seq.each do |color|
       system("clear") || system("cls")
       puts color
-      sleep(0.9)
+      sleep(1)
     end
   end
 
