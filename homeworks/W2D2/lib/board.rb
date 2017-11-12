@@ -46,8 +46,7 @@ class Board
     # if the player ends by dropping into their own point store, return :prompt
     # elsif the player ends by dropping into an *empty* cup, return :switch
     # else the player ends in a cup that had stones, return `ending_cup_idx` to start next turn
-    if (STORE_CUPS.first == ending_cup_idx && current_player_name == @name1) ||
-       (STORE_CUPS.last == ending_cup_idx && current_player_name == @name2)
+    if STORE_CUPS.include?(ending_cup_idx) # player can only end on own store
       :prompt
     elsif cups[ending_cup_idx].size == 1
       :switch
