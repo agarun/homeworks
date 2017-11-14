@@ -2,8 +2,8 @@ require 'rspec'
 require 'dessert'
 
 describe Dessert do
-  subject(:tiramisu) { Dessert.new("custard", 10, "batali") }
-  let(:chef) { double("chef") }
+  let(:chef) { double("chef", name: "Bourdain") }
+  let(:tiramisu) { Dessert.new("custard", 10, chef) }
 
   describe "#initialize" do
     it "sets a type" do
@@ -11,7 +11,7 @@ describe Dessert do
     end
 
     it "sets a quantity" do
-      expect(tiramisu.quantity).to_not be_falsy
+      expect(tiramisu.quantity).to eq(10)
     end
 
     it "starts ingredients as an empty array" do
@@ -19,7 +19,7 @@ describe Dessert do
     end
 
     it "raises an argument error when given a non-integer quantity" do
-      expect { Dessert.new("", "test", "") }.to raise_error(ArgumentError)
+      expect { Dessert.new("", "test", chef) }.to raise_error(ArgumentError)
     end
   end
 
@@ -31,35 +31,38 @@ describe Dessert do
   end
 
   describe "#mix!" do
-    let(:pre_shuffle) { double(tiramisu.ingredients) }
-
     it "shuffles the ingredient array" do
+      ingredients = ["sugar", "eggs", "cocoa", "butter", "kisses"]
+      ingredients.each { |ingredient| tiramisu.add_ingredient(ingredient) }
+      
       tiramisu.mix!
-      expect(tiramisu.ingredients).to_not eq(:pre_shuffle)
+      expect(tiramisu.ingredients).to_not eq(ingredients)
+      expect(tiramisu.ingredients.sort).to eq(ingredients.sort)
     end
   end
 
   describe "#eat" do
     it "subtracts an amount from the quantity" do
-      tiramisu.eat(1)
-      expect(tiramisu.quantity).to eq(9)
+      tiramisu.eat(2)
+      expect(tiramisu.quantity).to eq(8)
     end
 
     it "raises an error if the amount is greater than the quantity" do
-      expect { tiramisu.eat(11) }.to raise_error
+      expect { tiramisu.eat(11) }.to raise_error("not enough left!")
     end
   end
 
   describe "#serve" do
     it "contains the titleized version of the chef's name" do
-      expect(tiramisu.serve).to include("Batali")
+      allow(chef).to receive(:titleize).and_return("Chef Bourdain the Great Baker")
+      expect(tiramisu.serve).to eq("Chef Bourdain the Great Baker has made 10 custards!")
     end
   end
 
   describe "#make_more" do
     it "calls bake on the dessert's chef with the dessert passed in" do
-      expect(chef).to receive(:bake).with(tiramisu)
-      chef.bake(tiramisu)
+      allow(chef).to receive(:bake).with(tiramisu)
+      tiramisu.make_more
     end
   end
 end
