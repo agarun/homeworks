@@ -3,7 +3,6 @@ require_relative "cursor"
 require_relative "board"
 
 class Display
-
   attr_reader :cursor, :board
 
   def initialize(board)
@@ -16,22 +15,24 @@ class Display
 
     board.grid.each_with_index do |row, i|
       row.each_with_index do |cell, j|
+        # always color the current cell yellow
+        # at each cell, color the possible (valid!) moves pink
         if [i, j] == @cursor.cursor_pos
           print cell.to_s.on_yellow
         else
-          places = []
+          possible_moves = []
           if !board.no_piece?(cursor.cursor_pos) && board[cursor.cursor_pos].color == player_color
-            places = board[cursor.cursor_pos].valid_moves
+            possible_moves = board[cursor.cursor_pos].valid_moves
           end
 
-          if places.include?([i, j])
-            if (j + i).odd?
+          if possible_moves.include?([i, j])
+            if (i + j).odd? # maintain checkerboard pattern
               print cell.to_s.on_magenta
             else
               print cell.to_s.on_light_magenta
             end
           else
-            if (j + i).odd?
+            if (i + j).odd?
               print cell.to_s.on_white
             else
               print cell.to_s.on_light_white
@@ -42,9 +43,5 @@ class Display
 
       puts
     end
-  end
-
-  def run
-
   end
 end
