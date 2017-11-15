@@ -9,5 +9,5 @@ D5 - [Abstract Data Types](https://github.com/agarun/homeworks/blob/master/homew
 
 #### Week 2
 D1 - [Simon Game](https://github.com/agarun/homeworks/blob/master/homeworks/W2D1/lib/simon_colorize.rb)  
-D2 - [Mancala](https://github.com/agarun/homeworks/tree/master/homeworks/W2D2)  
+D2 - [Chess](https://github.com/agarun/homeworks/tree/master/classwork/W2D2/chess), [Mancala](https://github.com/agarun/homeworks/tree/master/homeworks/W2D2)  
 D3 - [Dessert Specs](https://github.com/agarun/homeworks/tree/master/homeworks/W2D3)
