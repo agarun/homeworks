@@ -10,7 +10,6 @@ class HumanPlayer
   def take_turn
     movesets = []
 
-
     until movesets.size == 2
       display.render(color)
       puts("#{name}'s turn (#{color})!")
