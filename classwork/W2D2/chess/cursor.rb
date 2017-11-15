@@ -49,28 +49,22 @@ class Cursor
   def read_char
     STDIN.echo = false # stops the console from printing return values
 
-    STDIN.raw! # in raw mode data is given as is to the program--the system
-                 # doesn't preprocess special characters such as control-c
+    STDIN.raw! # in raw mode data is given as is to the program
+               # sys doesn't preprocess special characters such as control-c
 
     input = STDIN.getc.chr # STDIN.getc reads a one-character string as a
-                             # numeric keycode. chr returns a string of the
-                             # character represented by the keycode.
-                             # (e.g. 65.chr => "A")
+                           # numeric keycode. chr returns a string of the
+                           # character represented by the keycode.
 
     if input == "\e" then
-      input << STDIN.read_nonblock(3) rescue nil # read_nonblock(maxlen) reads
-                                                   # at most maxlen bytes from a
-                                                   # data stream; it's nonblocking,
-                                                   # meaning the method executes
-                                                   # asynchronously; it raises an
-                                                   # error if no data is available,
-                                                   # hence the need for rescue
-
+      # nonblocking (method executes async). reads 3 bytes at most from data stream
+      # raises an error if no data is available (rescue)
+      input << STDIN.read_nonblock(3) rescue nil
       input << STDIN.read_nonblock(2) rescue nil
     end
 
     STDIN.echo = true # the console prints return values again
-    STDIN.cooked! # the opposite of raw mode :)
+    STDIN.cooked! # the opposite of raw mode
 
     return input
   end
@@ -88,11 +82,10 @@ class Cursor
 
   def update_pos(diff)
     dx, dy = diff
+    x, y = cursor_pos
 
-    temp_cursor_pos = [cursor_pos.first + dx, cursor_pos.last + dy]
-    if board.in_bounds?(temp_cursor_pos)
-      @cursor_pos = temp_cursor_pos
-    end
+    temp_cursor_pos = [x + dx, y + dy]
+    @cursor_pos = temp_cursor_pos if board.in_bounds?(temp_cursor_pos)
 
     nil
   end
