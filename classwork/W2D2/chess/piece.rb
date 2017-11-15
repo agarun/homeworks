@@ -2,12 +2,11 @@ require "singleton"
 require "colorize"
 
 class Piece
-
   DIAGONALS = [[-1, 1], [1, -1], [-1, -1], [1, 1]]
   LINES = [[0, 1], [0, -1], [1, 0], [-1, 0]]
 
   attr_accessor :position, :board
-  attr_reader :directions, :color, :unicode, :symbol
+  attr_reader :directions, :color, :unicode
 
   def initialize(position, board, color)
     @position = position
@@ -46,15 +45,15 @@ module SlidingPiece
     all_moves = []
 
     directions.each do |dir|
-      temp = position
+      temp_pos = position
       dx, dy = dir
 
-      while board.in_bounds?(temp) && (board.no_piece?(temp) || temp == position)
-        all_moves << temp
-        temp = [temp.first + dx, temp.last + dy]
+      while board.in_bounds?(temp_pos) && (board.no_piece?(temp_pos) || temp_pos == position)
+        all_moves << temp_pos
+        temp_pos = [temp_pos.first + dx, temp_pos.last + dy]
       end
 
-      all_moves << temp if board.in_bounds?(temp) && opponent?(temp)
+      all_moves << temp_pos if board.in_bounds?(temp_pos) && opponent?(temp_pos)
     end
     all_moves.delete(position)
 
@@ -68,8 +67,13 @@ module SteppingPiece
 
     directions.each do |dir|
       dx, dy = dir
-      temp = [position.first + dx, position.last + dy]
-      all_moves << temp if board.in_bounds?(temp) && (board.no_piece?(temp) || opponent?(temp))
+      x, y = position
+      temp_pos = [x + dx, y + dy]
+
+      if board.in_bounds?(temp_pos) &&
+        (board.no_piece?(temp_pos) || opponent?(temp_pos))
+        all_moves << temp_pos
+      end
     end
 
     all_moves
@@ -82,7 +86,6 @@ class Bishop < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265D" : "\u2657"
-    @symbol = :Bishop
     @directions = DIAGONALS
   end
 end
@@ -93,7 +96,6 @@ class Rook < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265C" : "\u2656"
-    @symbol = :Rook
     @directions = LINES
   end
 end
@@ -104,7 +106,6 @@ class Queen < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265B" : "\u2655"
-    @symbol = :Queen
     @directions = LINES + DIAGONALS
   end
 end
@@ -115,7 +116,6 @@ class Knight < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265E" : "\u2658"
-    @symbol = :Knight
     @directions = [[-2, -1], [-2, 1], [2, -1], [2, 1], [1, -2], [1, 2], [-1, -2], [-1, 2]]
   end
 end
@@ -126,7 +126,6 @@ class King < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265A" : "\u2654"
-    @symbol = :King
     @directions = LINES + DIAGONALS
   end
 end
@@ -137,13 +136,13 @@ class Pawn < Piece
   def initialize(position, board, color)
     super
     @unicode = color == :black ? "\u265F" : "\u2659"
-    @symbol = :Pawn
     @starting_position = position
 
-    if color == :black
+    case color
+    when :black
       @directions = [[1,0]]
       @attacking_direction = [[1, 1], [1, -1]]
-    else
+    when :white
       @directions = [[-1,0]]
       @attacking_direction = [[-1, 1], [-1, -1]]
     end
@@ -151,15 +150,20 @@ class Pawn < Piece
 
   def moves
     all_moves = []
+
     dx, dy = directions.first
-    temp = [position.first + dx, position.last + dy]
+    x, y = position
+    temp_pos = [x + dx, y + dy]
 
-    if board.in_bounds?(temp) && board.no_piece?(temp)
-      all_moves << temp
-      temp = [temp.first + dx, temp.last + dy]
+    if board.in_bounds?(temp_pos) &&
+      board.no_piece?(temp_pos)
+      all_moves << temp_pos
+      temp_pos = [temp_pos.first + dx, temp_pos.last + dy]
 
-      if @starting_position == position && board.in_bounds?(temp) && board.no_piece?(temp)
-        all_moves << temp
+      if @starting_position == position &&
+        board.in_bounds?(temp_pos) &&
+        board.no_piece?(temp_pos)
+        all_moves << temp_pos
       end
     end
 
@@ -176,9 +180,5 @@ class NullPiece < Piece
 
   def initialize
     @unicode = " "
-  end
-
-  def to_a
-    nil
   end
 end
