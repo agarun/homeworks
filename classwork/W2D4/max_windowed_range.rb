@@ -1,6 +1,7 @@
 # Given an array, and a window size w, find the
 # maximum range (max - min) within a set of w elements.
 
+# O(mn) time, depends on both input sizes!
 def windowed_max_range(array, window_size)
   current_max_range = nil
   # consider each window of size w
@@ -19,7 +20,15 @@ p windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
 p windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
 p windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
 
-# -------------------------------
+# .each_cons can be replaced with:
+# ```
+# (0..array.size - window_size).each do |i|
+#   window = array[i...i + window_size]
+#   ...
+# end
+# ```
+
+p "-------------------------------"
 
 # Stack
 # push: adds an element to the top of the stack
@@ -50,7 +59,6 @@ class MyQueue
 
   def size
     @store.size
-    nil
   end
 
   def empty?
@@ -78,7 +86,6 @@ class MyStack
 
   def size
     @store.size
-    nil
   end
 
   def empty?
@@ -102,7 +109,7 @@ class StackQueue
 
   # either enq is O(1) & deq is O(n) or the opposite (here enq is O(1) guaranteed)
   def enqueue(element)
-    @in << element
+    @in.push(element)
   end
 
   # deq might be amortized constant time if this is NOT the first deq operation
@@ -113,7 +120,7 @@ class StackQueue
   end
 
   def size
-    [@in + @out].size
+    @in.size + @out.size
   end
 
   def empty?
@@ -124,7 +131,7 @@ class StackQueue
 
   def remove_elements_to_stack
     until @in.empty?
-      @out << @in.pop
+      @out.push(@in.pop)
     end
   end
 end
@@ -198,7 +205,7 @@ class MinMaxStackQueue
   end
 
   def enqueue(value)
-    @in << (value)
+    @in.push(value)
   end
 
   def empty?
@@ -225,14 +232,44 @@ class MinMaxStackQueue
   end
 
   def size
-    [@in + @out].size
+    @in.size + @out.size
   end
 
   private
 
   def remove_elements_to_stack
     until @in.empty?
-      @out << @in.pop
+      @out.push(@in.pop)
     end
   end
 end
+
+# Given an array, and a window size w, find the
+# maximum range (max - min) within a set of w elements.
+
+# consider each window of size w
+# for each window, find the max value & the min value in the window
+# compare max - min to current_max_range, resetting if necessary
+
+# O(n) time
+def windowed_max_range(array, window_size)
+  current_max_range = nil
+  queue = MinMaxStackQueue.new
+
+  array.each_with_index do |el, i|
+    queue.enqueue(el)
+    queue.dequeue if queue.size > window_size
+
+    if queue.size == window_size
+      range = queue.max - queue.min
+      current_max_range = range if current_max_range.nil? || current_max_range < range
+    end
+  end
+
+  current_max_range
+end
+
+p windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4 # 4, 8
+p windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
+p windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
+p windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
