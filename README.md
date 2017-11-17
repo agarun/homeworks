@@ -12,3 +12,4 @@ D1 - [Simon Game](https://github.com/agarun/homeworks/blob/master/homeworks/W2D1
 D2 - [Chess](https://github.com/agarun/homeworks/tree/master/classwork/W2D2/chess), [Mancala](https://github.com/agarun/homeworks/tree/master/homeworks/W2D2)  
 D3 - [Dessert Specs](https://github.com/agarun/homeworks/tree/master/homeworks/W2D3)  
 D4 - [Complexity](https://github.com/agarun/homeworks/tree/master/homeworks/W2D4), [Complexity Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W2D4)  
+D5 - [Basic LRU cache](https://github.com/agarun/homeworks/tree/master/homeworks/W2D5)   
