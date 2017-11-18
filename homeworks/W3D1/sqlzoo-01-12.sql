@@ -260,3 +260,23 @@ GROUP BY
   role
 HAVING
   role = "Engineer";
+
+-- 12
+
+SELECT
+  director,
+  COUNT(title) AS number_movies_directed
+FROM
+  movies
+GROUP BY
+  director;
+
+SELECT
+  director,
+  SUM(domestic_sales + international_sales) AS total_sales_all_movies
+FROM
+  movies
+INNER JOIN
+  boxoffice ON movies.id = boxoffice.movie_id
+GROUP BY
+  director;
