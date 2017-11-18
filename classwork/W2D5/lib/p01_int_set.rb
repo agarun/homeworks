@@ -39,17 +39,14 @@ class IntSet
     @store = Array.new(num_buckets) { Array.new }
   end
 
-  #O(n)
   def insert(num)
     self[num] << num unless include?(num)
   end
 
-  # O(n)
   def remove(num)
     self[num].delete(num)
   end
 
-  # O(n)
   def include?(num)
     self[num].include?(num)
   end
@@ -89,6 +86,7 @@ class ResizingIntSet
   def remove(num)
     result = self[num].delete(num)
     @count -= 1 if result
+    num
   end
 
   # O(1)
@@ -104,7 +102,7 @@ class ResizingIntSet
   end
 
   def num_buckets
-    @store.length
+    @store.size
   end
 
   # O(n) amortized
@@ -121,4 +119,6 @@ class ResizingIntSet
 
     @store = new_store
   end
+
+  # alternative #resize!, reset @store, flatten old @store, and #insert each num
 end
