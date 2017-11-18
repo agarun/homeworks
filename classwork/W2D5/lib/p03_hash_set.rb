@@ -39,11 +39,10 @@ class HashSet
   end
 
   def num_buckets
-    @store.length
+    @store.size
   end
 
   # O(n) amortized
-
   def resize!
     new_size = 2*num_buckets
     new_store = Array.new(new_size) {Array.new}
@@ -56,4 +55,6 @@ class HashSet
 
     @store = new_store
   end
+
+  # alternative #resize!, reset @store, flatten old @store, and #insert each num
 end

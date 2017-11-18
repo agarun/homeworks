@@ -1,5 +1,5 @@
 class Fixnum
-  # Fixnum#hash already implemented for you
+  # Fixnum#hash already implemented
 end
 
 class Array
@@ -16,14 +16,11 @@ end
 
 class String
   def hash
-    string_vals = self.chars.map { |char| char.ord } # map(&:ord)
-    string_vals.hash
+    chars.map(&:ord).hash
   end
 end
 
 class Hash
-  # This returns 0 because rspec will break if it returns nil
-  # Make sure to implement an actual Hash#hash method
   def hash
     hash_value = 1.hash
 
@@ -33,6 +30,8 @@ class Hash
 
     hash_value
   end
+
+  # to_a.sort_by(&:hash).hash # sort_by ignores order for hashes
 end
 
 # p [1,2,3].hash
