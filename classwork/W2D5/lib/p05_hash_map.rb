@@ -3,6 +3,7 @@ require_relative 'p04_linked_list'
 
 class HashMap
   include Enumerable
+
   attr_reader :count
 
   def initialize(num_buckets = 8)
@@ -35,8 +36,6 @@ class HashMap
     if include?(key)
       bucket(key).remove(key)
       @count -= 1
-    else
-      nil
     end
   end
 
@@ -50,7 +49,6 @@ class HashMap
     self
   end
 
-  # uncomment when you have Enumerable included
   def to_s
     pairs = inject([]) do |strs, (k, v)|
       strs << "#{k.to_s} => #{v.to_s}"
@@ -64,7 +62,7 @@ class HashMap
   private
 
   def num_buckets
-    @store.length
+    @store.size
   end
 
   def resize!
@@ -82,4 +80,6 @@ class HashMap
   def bucket(key)
     @store[key.hash % num_buckets]
   end
+
+  # alternative to #resize! is to save @store in a variable, iterate over var and use #set(k, v)
 end
