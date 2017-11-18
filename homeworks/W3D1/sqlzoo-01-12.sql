@@ -149,3 +149,114 @@ INNER JOIN
   boxoffice ON movies.id = boxoffice.movie_id
 ORDER BY
   rating DESC;
+
+-- 07
+
+SELECT DISTINCT
+  building
+FROM
+  employees;
+
+SELECT
+  *
+FROM
+  buildings;
+
+SELECT DISTINCT
+  building_name, role
+FROM
+  buildings
+LEFT JOIN
+  employees ON employees.building = buildings.building_name;
+
+-- 08
+
+SELECT
+  name, role
+FROM
+  employees
+WHERE
+  building IS NULL;
+
+SELECT DISTINCT
+  building_name
+FROM
+  buildings
+LEFT OUTER JOIN
+  employees ON employees.building = buildings.building_name
+WHERE
+  building IS NULL;
+
+-- 09
+
+SELECT
+  title, (domestic_sales + international_sales) / 1000000 AS combined_sales
+FROM
+  movies
+INNER JOIN
+  boxoffice ON movies.id = boxoffice.movie_id;
+
+SELECT
+  title, rating * 10 AS rating_percentage
+FROM
+  movies
+INNER JOIN
+  boxoffice ON movies.id = boxoffice.movie_id;
+
+SELECT
+  title
+FROM
+  movies
+WHERE
+  year % 2 = 0;
+
+-- 10
+
+SELECT
+  MAX(years_employed) AS max_years_employed
+FROM
+  employees;
+
+SELECT
+  role,
+  AVG(years_employed) AS avg_yrs_in_role
+FROM
+  employees
+GROUP BY
+  role;
+
+SELECT
+  building,
+  SUM(years_employed) AS total_years_employed
+FROM
+  employees
+GROUP BY
+  building;
+
+-- 11
+
+SELECT
+  role,
+  COUNT(*)
+FROM
+  employees
+WHERE
+  role = "Artist";
+
+SELECT
+  role,
+  COUNT(name)
+FROM
+  employees
+GROUP BY
+  role;
+
+SELECT
+  role,
+  SUM(years_employed)
+FROM
+  employees
+GROUP BY
+  role
+HAVING
+  role = "Engineer";
