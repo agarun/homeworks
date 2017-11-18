@@ -18,6 +18,10 @@ class Node
 
     self.prev.next = self.next
     self.next.prev = self.prev
+
+    # garbage collected? no more pointers to this node:
+    # self.prev = nil
+    # self.next = nil
   end
 end
 
@@ -50,8 +54,8 @@ class LinkedList
 
   # O(n)
   def get(key)
-    node_to_find = get_node(key)
-    node_to_find.val unless node_to_find.nil?
+    node = get_node(key)
+    node.val unless node.nil?
   end
 
   def get_node(key)
@@ -86,9 +90,9 @@ class LinkedList
   end
 
   def remove(key)
-    node_to_find = get_node(key)
-    return nil if node_to_find.nil?
-    node_to_find.remove
+    node = get_node(key)
+    return nil if node.nil?
+    node.remove
   end
 
   def each(&prc)
