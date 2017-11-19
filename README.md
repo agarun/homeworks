@@ -15,5 +15,5 @@ D4 - [Complexity](https://github.com/agarun/homeworks/tree/master/homeworks/W2D4
 D5 - [Sets, Linked Lists, Hash Map, LRU Cache, Dynamic Array](https://github.com/agarun/homeworks/tree/master/classwork/W2D5/lib), [Basic LRU cache](https://github.com/agarun/homeworks/tree/master/homeworks/W2D5)   
 
 #### Week 3
-D1 - [SQLZoo 1-12](https://github.com/agarun/homeworks/tree/master/homeworks/W3D1)  
+D1 - [SQLBolt 1-12](https://github.com/agarun/homeworks/tree/master/homeworks/W3D1)  
 D2 - [ORM Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W3D2)   
