@@ -7,7 +7,7 @@ class Play
   end
 
   def self.find_by_title(title)
-    PlayDBConnection.instance.execute(<<-SQL, title)
+    play = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT
         *
       FROM
@@ -15,10 +15,13 @@ class Play
       WHERE
         title = ?
     SQL
+
+    # slice first element because query returns `[options_hash]`
+    Play.new(play[0]) unless play.empty?
   end
 
   def self.find_by_playwright(name)
-    PlayDBConnection.instance.execute(<<-SQL, name)
+    plays = PlayDBConnection.instance.execute(<<-SQL, name)
       SELECT
         *
       FROM
@@ -33,6 +36,8 @@ class Play
             name = ?
         )
     SQL
+
+    plays.map { |play| Play.new(play) } unless plays.empty?
   end
 
   attr_accessor :title, :year, :playwright_id

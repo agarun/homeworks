@@ -8,7 +8,7 @@ class Playwright
   end
 
   def self.find_by_name(name)
-    PlayDBConnection.instance.execute(<<-SQL, @name)
+    playwright = PlayDBConnection.instance.execute(<<-SQL, name)
       SELECT
         *
       FROM
@@ -16,6 +16,8 @@ class Playwright
       WHERE
         name = ?
     SQL
+
+    Playwright.new(playwright[0]) unless playwright.empty?
   end
 
   attr_accessor :name, :birth_year
@@ -53,6 +55,19 @@ class Playwright
   end
 
   def get_plays
+    raise "#{self} not in database" unless @id
+
     Play.find_by_playwright(name)
   end
+
+  # #get_plays
+  # plays = PlayDBConnection.instance.execute(<<-SQL, @id)
+  #   SELECT
+  #     *
+  #   FROM
+  #     plays
+  #   WHERE
+  #     playwright_id = ?
+  # SQL
+  # plays.map { |play| Play.new(play) }
 end
