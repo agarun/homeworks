@@ -14,18 +14,19 @@ class Question
       WHERE
         id = ?
     SQL
+    return nil if question.empty?
 
     Question.new(question.first)
   end
 
   def self.find_by_author_id(author_id)
     question = QuestionsDBConnection.instance.execute(<<-SQL, author_id)
-    SELECT
-    *
-    FROM
-    questions
-    WHERE
-    user_id = ?
+      SELECT
+        *
+      FROM
+        questions
+      WHERE
+        user_id = ?
     SQL
     return nil if question.empty?
 
@@ -71,11 +72,7 @@ class Question
   end
 
   def save
-    if self.id
-      update
-    else
-      insert
-    end
+    self.id ? update : insert
   end
 
   private
@@ -97,6 +94,6 @@ class Question
         title = ?, body = ?, user_id = ?
       WHERE
         id = ?
-      SQL
+    SQL
   end
 end

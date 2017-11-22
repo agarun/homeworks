@@ -83,11 +83,7 @@ class Reply
   end
 
   def save
-    if self.id
-      update
-    else
-      insert
-    end
+    self.id ? update : insert
   end
 
   private
