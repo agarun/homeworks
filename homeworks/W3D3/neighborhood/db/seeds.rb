@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+house = House.new(address: '308 Negra Arroyo Lane')
+person = Person.new(name: 'Walter White', house_id: house.id)
+
+house.save!
+person.save!
