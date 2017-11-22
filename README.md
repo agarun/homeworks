@@ -16,4 +16,5 @@ D5 - [Sets, Linked Lists, Hash Map, LRU Cache, Dynamic Array](https://github.com
 
 #### Week 3
 D1 - [SQLBolt 1-12](https://github.com/agarun/homeworks/tree/master/homeworks/W3D1), [SQLZoo 1-9](https://github.com/agarun/homeworks/tree/master/classwork/W3D1)  
-D2 - [ORM Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W3D2)   
+D2 - [ORM Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W3D2), [AA Questions](https://github.com/agarun/homeworks/tree/master/classwork/W3D2)   
+D3 - [Rails Demo](https://github.com/agarun/homeworks/tree/master/homeworks/W3D3/neighborhood)  
