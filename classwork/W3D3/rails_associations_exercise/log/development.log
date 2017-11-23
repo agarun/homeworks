@@ -1,0 +1,71 @@
+  [1m[35m (260.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8485079227135950285)[0m
+  [1m[35m (20.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20170710184213)
+  [1m[35m (18.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (69.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170710184213"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEnrollments (20170710184239)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "enrollments" ("id" bigserial primary key, "course_id" integer, "student_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170710184239"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCourses (20170710184251)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" bigserial primary key, "name" character varying, "prereq_id" integer, "instructor_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170710184251"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-11-22 14:24:37.887261"], ["updated_at", "2017-11-22 14:24:37.887261"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8485079227135950285)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mEnrollment Load (0.7ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.5ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CJ"], ["created_at", "2017-11-22 14:25:54.572294"], ["updated_at", "2017-11-22 14:25:54.572294"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Flarnie"], ["created_at", "2017-11-22 14:25:54.574543"], ["updated_at", "2017-11-22 14:25:54.574543"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Jeff"], ["created_at", "2017-11-22 14:25:54.575922"], ["updated_at", "2017-11-22 14:25:54.575922"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Georges St. Pierre"], ["created_at", "2017-11-22 14:25:54.577133"], ["updated_at", "2017-11-22 14:25:54.577133"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ned"], ["created_at", "2017-11-22 14:25:54.578392"], ["updated_at", "2017-11-22 14:25:54.578392"]]
+  [1m[36mCourse Load (14.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  [1m[35mSQL (19.0ms)[0m  [1m[32mINSERT INTO "courses" ("name", "instructor_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ruby 101"], ["instructor_id", 5], ["created_at", "2017-11-22 14:25:54.607476"], ["updated_at", "2017-11-22 14:25:54.607476"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "prereq_id", "instructor_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ruby 102"], ["prereq_id", 1], ["instructor_id", 5], ["created_at", "2017-11-22 14:25:54.627786"], ["updated_at", "2017-11-22 14:25:54.627786"]]
+  [1m[36mEnrollment Load (0.6ms)[0m  [1m[34mSELECT "enrollments".* FROM "enrollments"[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "enrollments" ("course_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["course_id", 1], ["student_id", 3], ["created_at", "2017-11-22 14:25:54.654758"], ["updated_at", "2017-11-22 14:25:54.654758"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "enrollments" ("course_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["course_id", 1], ["student_id", 4], ["created_at", "2017-11-22 14:25:54.657284"], ["updated_at", "2017-11-22 14:25:54.657284"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("course_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["course_id", 2], ["student_id", 1], ["created_at", "2017-11-22 14:25:54.658631"], ["updated_at", "2017-11-22 14:25:54.658631"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "enrollments" ("course_id", "student_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["course_id", 2], ["student_id", 2], ["created_at", "2017-11-22 14:25:54.659918"], ["updated_at", "2017-11-22 14:25:54.659918"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEnrollment Load (46.6ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.5ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.3ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.6ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.3ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.9ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" ORDER BY "enrollments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEnrollment Load (0.3ms)[0m  [1m[34mSELECT  "enrollments".* FROM "enrollments" WHERE "enrollments"."student_id" = $1 LIMIT $2[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" INNER JOIN "enrollments" ON "courses"."id" = "enrollments"."course_id" WHERE "enrollments"."student_id" = $1 LIMIT $2[0m  [["student_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "enrollments" ON "users"."id" = "enrollments"."student_id" WHERE "enrollments"."course_id" = $1 LIMIT $2[0m  [["course_id", 1], ["LIMIT", 11]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "enrollments" ON "users"."id" = "enrollments"."student_id" WHERE "enrollments"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
