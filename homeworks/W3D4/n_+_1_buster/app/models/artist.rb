@@ -17,9 +17,12 @@ class Artist < ApplicationRecord
   end
 
   def better_tracks_query
+    # joins > includes due to COUNT aggregate.
+    # note we can also alias the `COUNT` and then refer to it in the `do end` block.
+    # note `.count` would fire another query for each row
     albums = self
       .albums
-      .select("albums.*, COUNT(*)") # joins > includes due to COUNT
+      .select("albums.*, COUNT(*)")
       .joins(:tracks)
       .group("albums.id")
 
