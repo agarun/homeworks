@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require "launchy"
+
+puts "What's your email, bud?"
+email = gets.chomp
+
+user = User.find_by(email: email)
+
+puts "Would you like to create a shortened URL or visit an existing one?\nType \"Y\" to create a new one, or \"N\" to visit an existing one"
+input = gets.chomp
+
+if input == "Y"
+  puts "What is the long URL that you would like to shorten?"
+  long_url = gets.chomp
+  
+  short_url_instance = ShortenedUrl.generate_code(user, long_url)
+  puts short_url_instance.short_url
+elsif input == "N"
+  puts "What shortened URL would you like to visit?"
+  short_url_string = gets.chomp
+  
+  short_url_instance = ShortenedUrl.find_by(short_url: short_url_string)
+end
+
+long_url = short_url_instance.long_url
+Launchy.open(long_url)
+
+Visit.record_visit!(user, short_url_instance)
