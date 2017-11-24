@@ -104,27 +104,48 @@ class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
     @box_id = box_id
-  end
 
-  def method_missing(name, *args)
-    if name.to_s.start_with?("get_")
-      underscore_1 = name.to_s.index("_")
-      underscore_2 = name.to_s.rindex("_")
-      super if underscore_2.nil?
-
-      treat = name.to_s[underscore_1 + 1...underscore_2]
-      query = name.to_s[underscore_2 + 1..-1]
-
-      @snack_box[@box_id][treat][query]
-    elsif @snack_box[@box_id].key?(name.to_s)
-      query = @snack_box[@box_id][name.to_s]
-      "#{'* ' if query["tastiness"] > 30}#{name.capitalize}: #{query["info"]}: #{query["tastiness"]}"
-    else
-      super
+    snack_box.methods.grep(/^get_(.*)_info$/) do
+      MetaCorgiSnacks.define_snack(Regexp.last_match(1))
     end
   end
 
+  # ~ one method if @snack_box is just the hash
+  # def method_missing(name, *args)
+  #   if name.to_s.start_with?("get_")
+  #     underscore_1 = name.to_s.index("_")
+  #     underscore_2 = name.to_s.rindex("_")
+  #     super if underscore_2.nil?
+  #
+  #     treat = name.to_s[underscore_1 + 1...underscore_2]
+  #     query = name.to_s[underscore_2 + 1..-1]
+  #
+  #     @snack_box[@box_id][treat][query]
+  #   elsif @snack_box[@box_id].key?(name.to_s)
+  #     query = @snack_box[@box_id][name.to_s]
+  #     "#{'* ' if query["tastiness"] > 30}#{name.capitalize}: #{query["info"]}: #{query["tastiness"]}"
+  #   else
+  #     super
+  #   end
+  # end
+
+  # ~ 1. use `send` to refactor `bone`, `kibble`, `treat` from `CorgiSnacks`
+  # def method_missing(name, *args)
+  #   info = @snack_box.send("get_#{name}_info", @box_id)
+  #   tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+  #   result = "#{name.capitalize}: #{info}: #{tastiness} "
+  #   tastiness > 30 ? "* #{result}" : result
+  # end
+
+  # ~ 2. refactor above with dynamic dispatch
+  # ~ throws an error (unmodified `method_missing`) if `name` wasn't
+  #   defined in `initialize`
   def self.define_snack(name)
-    # Your code goes here...
+    define_method(name) do
+      info = @snack_box.send("get_#{name}_info", @box_id)
+      tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+      result = "#{name.capitalize}: #{info}: #{tastiness} "
+      tastiness > 30 ? "* #{result}" : result
+    end
   end
 end
