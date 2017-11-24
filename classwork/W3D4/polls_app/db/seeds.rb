@@ -13,27 +13,8 @@ Response.destroy_all
 Question.destroy_all
 
 user = ['Aaron', 'Elena'] # , 'Nakodila']
-# poll = {'Rate Thanksgiving meal' => {'Turkey'=> [3,2,1], 'Pecan Pie' => [3,2,1], 'Stuffing' => [3,2,1]}, 
-#         'Favorite AppAcademy TA' => {'Mashu'=> ['Yes', 'No'], 'Ommi'=> ['Yes', 'No'], 'Alex'=> ['Yes', 'No'], 'Moe'=> ['Yes', 'No'], 'Mike'=> ['Yes', 'No']}, 
-#         'Rate AppAcdemy topics' => {'SQL' => [5,4,3,2,1], 'Ruby'=> [5,4,3,2,1], 'BigO'=> [5,4,3,2,1]}} 
-
 
 user.each { |name| User.create({username: name}) }
-
-# i = 1 # user / poll
-# j = 1 # ques
-# 
-# poll.each do |poll_title, ques_data|
-#   Poll.create(title: poll_title, user_id: i)
-# 
-#   ques_data.each do |question, choices|
-#     Question.create(text: question, poll_id: i)
-#     choices.each_with_index {|answer| AnswerChoice.create(text: answer, question_id: j )}
-#     j += 1
-#   end
-# 
-#   i += 1 
-# end
 
 User.create(username: 'Aaron')
 
@@ -63,7 +44,7 @@ Response.create(
 )
 
 Response.create(
-  user_id: User.find_by(username: 'Elena').id,  
+  user_id: User.find_by(username: 'Elena').id,
   answer_choice_id: AnswerChoice.find_by(text: 3, question_id: Question.find_by(text: 'Pecan Pie').id).id
 )
 
@@ -90,7 +71,7 @@ AnswerChoice.create(text: 'Yes', question_id: Question.find_by(text: 'Alex').id)
 AnswerChoice.create(text: 'No', question_id: Question.find_by(text: 'Alex').id)
 
 Question.create(text: 'Moe', poll_id: Poll.find_by(title: 'Favorite AppAcademy TA').id)
- 
+
 AnswerChoice.create(text: 'Yes', question_id: Question.find_by(text: 'Moe').id)
 AnswerChoice.create(text: 'No', question_id: Question.find_by(text: 'Moe').id)
 
@@ -108,9 +89,3 @@ Response.create(
   user_id: User.find_by(username: 'Aaron').id,
   answer_choice_id: AnswerChoice.find_by(text: 'Yes', question_id: Question.find_by(text: 'Moe').id).id
 )
-
-
-
-
-
-
