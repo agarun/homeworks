@@ -20,3 +20,7 @@ D2 - [ORM Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W3
 D3 - [URL Shortener](https://github.com/agarun/homeworks/tree/master/classwork/W3D3/URLShortener), [Rails Demo](https://github.com/agarun/homeworks/tree/master/homeworks/W3D3/neighborhood), [Rails Associations](https://github.com/agarun/homeworks/tree/master/classwork/W3D3/rails_associations_exercise)   
 D4 - [ActiveRecord Movie Queries](https://github.com/agarun/homeworks/tree/master/classwork/W3D4/movie_buff/skeleton), [Poll App](https://github.com/agarun/homeworks/tree/master/classwork/W3D4/polls_app), [Active Record Warmup](https://github.com/agarun/homeworks/tree/master/homeworks/W3D4/active_record_warmup), [N+1 Query Buster](https://github.com/agarun/homeworks/tree/master/homeworks/W3D4/n_%2B_1_buster)  
 D5 - [ActiveRecord Lite](https://github.com/agarun/quale), [Metacorgis](https://github.com/agarun/homeworks/tree/master/homeworks/W3D5)  
+
+#### Week 4
+
+D1 - [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)
