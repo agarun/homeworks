@@ -9,16 +9,23 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(book_params)
-
-    index
+    book = Book.new(book_params)
+    if book.save
+      redirect_to books_url
+    else
+      # `flash.now` instead of `flash` because `new` will render, not redirect
+      flash.now[:errors] = book.errors.full_messages
+      new
+    end
   end
 
   def destroy
-    book = Book.find(params["id"])
-    book.destroy
-
-    index
+    book = Book.find(params[:id])
+    if book.destroy
+      redirect_to books_url
+    else
+      render json: "Can't delete that book."
+    end
   end
 
   private
