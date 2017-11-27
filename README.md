@@ -1,7 +1,5 @@
 Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
-# Homework and Coursework
-
 ## Week 1  
 **Day 1** - [Ruby Enumerables](https://github.com/agarun/homeworks/blob/master/classwork/W1D1/enumerables.rb)  
 **Day 3** - [Basic Recursion](https://github.com/agarun/homeworks/blob/master/homeworks/W1D3/recursion.rb), [Recursion Exercises](https://github.com/agarun/homeworks/blob/master/classwork/W1D3/recursion-exercises.rb)  
