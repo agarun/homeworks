@@ -3,8 +3,6 @@
   box-sizing: border-box;
 }
 
-/* Attribute selector targeting all elements
-with a class attribute containing 'col-' */
 [class*='col-'] {
   padding-right: 20px;
 }
@@ -31,11 +29,4 @@ with a class attribute containing 'col-' */
 
 .col-1-8 {
   width: 12.5%;
-}
-
-/* CSS Day 6 media queries */
-@media all and (max-width: 900px) {
-  [class*='col-'] {
-    width: 100%;
-  }
 }

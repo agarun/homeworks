@@ -1,0 +1,64 @@
+.hamburger-dropdown {
+  display: none;
+}
+
+@media screen and (max-width: 950px) {
+  [class*="col-"] {
+    clear: both;
+    width: 100%;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  .hamburger-dropdown ul {
+    /* The absolutely positioned element is positioned relative to its
+    nearest positioned ancestor (i.e., the nearest ancestor that is not static).
+    If a positioned ancestor doesn't exist, the initial container is used.
+    -> absolute will base top/right off of the body, which has 60% width
+    -> "An absolutely positioned element no longer exists in the normal document layout flow"
+    -> `position: absolute` removes the element from the normal flow
+    ..therefore it doesn't know its width and the element wraps the text.
+    without `position: absolute`, the background would only be 50px wide, like the burger. */
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    cursor: pointer;
+  }
+
+  .hamburger-dropdown ul li:hover {
+    background-color: #fff4f4;
+  }
+
+  .hamburger-dropdown ul li a:hover {
+    color: #911d1d;
+  }
+
+  .hamburger-dropdown:hover ul {
+    display: block;
+    /* this will produce equivalent behavior */
+    /*display: flex;
+    flex-flow: column nowrap;*/
+    background: #f2d2bb;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .hamburger-dropdown > li {
+    /* normal flow - offset relative to itself based on the values of top, right, bottom, and left */
+    /* i.e. with `position: static` (default), it will align to page,
+    but `relative` will let it align to the hamburger itself */
+    position: relative;
+    background-image: url(./hamburger.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+  }
+}
