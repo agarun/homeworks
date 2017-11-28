@@ -21,4 +21,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
 ## Week 4
 
-**Day 1** - [Art Share API](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/art_share_api), [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)
+**Day 1** - [Art Share API](https://github.com/agarun/homeworks/tree/master/classwork/W4D1/art_share_api), [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)
