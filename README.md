@@ -22,4 +22,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 ## Week 4
 
 **Day 1** - [Art Share API](https://github.com/agarun/homeworks/tree/master/classwork/W4D1/art_share_api), [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)  
-**Day 3** - [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D3/css_review)  
+**Day 3** - [Rails Auth](https://github.com/agarun/homeworks/tree/master/homeworks/W4D3/rails_auth)  
+**Day 5** - [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
