@@ -1,5 +1,7 @@
 <h1>Create a user:</h1>
 
+<% render 'shared/errors' %>
+
 <form class="" action="<%= users_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 

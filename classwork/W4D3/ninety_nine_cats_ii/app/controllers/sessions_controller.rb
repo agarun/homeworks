@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_action :already_logged_in, only: [:new, :create]
 
   def new
+    render :new
   end
 
   def create
@@ -9,20 +10,19 @@ class SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    
+
     if user
       login(user)
       redirect_to cats_url
     else
+      flash.now[:errors] = ["invalid credentials"]
       render :new
     end
   end
 
   def destroy
     if current_user
-      session[:session_token] = nil
-      current_user.reset_session_token!
-      @current_user = nil
+      logout
       redirect_to cats_url
     end
   end
