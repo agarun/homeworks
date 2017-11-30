@@ -24,4 +24,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 1** - [Art Share API](https://github.com/agarun/homeworks/tree/master/classwork/W4D1/art_share_api), [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)  
 **Day 2** - [99 Cats I](https://github.com/agarun/homeworks/tree/master/classwork/W4D2/ninety_nine_cats_i)  
 **Day 3** - [99 Cats II](https://github.com/agarun/homeworks/tree/master/classwork/W4D3/ninety_nine_cats_ii), [Rails Auth](https://github.com/agarun/homeworks/tree/master/homeworks/W4D3/rails_auth)    
+**Day 4** - [Helpers, Layouts, Partials](https://github.com/agarun/homeworks/tree/master/homeworks/W4D4)  
 **Day 5** - [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
