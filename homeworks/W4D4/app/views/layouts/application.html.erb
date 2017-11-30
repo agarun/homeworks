@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NinetyNineCats</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class="main-nav">
+    <h1><%= link_to "99 Cats", cats_url %></h1>
+    <div>
+    <% if current_user.nil? %>
+      <%= link_to 'Sign in', new_session_url %>
+      <%= link_to 'Sign up', new_user_url %>
+    <% else %>
+      <%= current_user.username %>
+      <%= button_to 'Logout', session_url, method: :delete %>
+    <% end %>
+    </div>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
