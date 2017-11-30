@@ -1,5 +1,8 @@
 class CatRentalRequest < ApplicationRecord
-  validates :status, inclusion: { in: %w[APPROVED DENIED], message: 'You can only switch between APPROVED or DENIED.' }
+  validates :status, inclusion: {
+    in: %w[APPROVED DENIED],
+    message: 'You can only switch between APPROVED or DENIED.'
+  }
   validate :does_not_overlap_approved_request
 
   belongs_to :cat,
@@ -9,10 +12,16 @@ class CatRentalRequest < ApplicationRecord
   def approve!
     self.transaction do
       self.status = "APPROVED"
+      self.save!
+
       overlapping_requests.each do |request|
-        deny!
+        deny! if request.pending?
       end
     end
+  end
+
+  def pending?
+    self.status == "PENDING"
   end
 
   private
@@ -35,6 +44,7 @@ class CatRentalRequest < ApplicationRecord
     current_cat_id = self.cat_id
 
     CatRentalRequest
+      .where.not(id: self.id)
       .where(cat_id: current_cat_id)
       .where.not("? > end_date OR ? < start_date", cats_start_date, cats_end_date)
   end

@@ -1,9 +1,12 @@
 <h1><%= @cat.name %>'s Page</h1>
 
   <table>
-    
-    <tr><th>Atttribute</th><th>Values</th></tr>
-    
+
+    <tr>
+      <th>Atttribute</th>
+      <th>Values</th>
+    </tr>
+
     <tr>
       <td>Age</td>
       <td><%= @cat.age %></td>
@@ -20,22 +23,40 @@
       <td>Sex</td>
       <td><%= @cat.sex %></td>
     </tr>
+    <tr>
+      <td>Description</td>
+      <td><%= @cat.description %></td>
+    </tr>
+
+    <!-- <%# [:age, :birth_date, :color, :sex].each do |attr_name| %>
       <tr>
-        <td>Description</td>
-        <td><%= @cat.description %></td>
+        <td><%#= attr_name %></td>
+        <td><%#= @cat.send(attr_name) %></td>
       </tr>
+    <%# end %> -->
   </table>
 
   <table>
-    
-    <tr><th>User</th><th>Start Date</th><th>End Date</th><th>Status</th></tr>
-    
+    <tr>
+      <th>User</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Status</th>
+    </tr>
+
     <% @cat.rental_requests.order(:start_date).each do |request| %>
       <tr>
-        <td>"no user class"</td>
+        <td>No User</td>
         <td><%= request.start_date %></td>
         <td><%= request.end_date %></td>
-        <td><%= request.status %></td>
+        <td>
+          <% if request.pending? %>
+            <%= button_to "Approve", approve_cat_rental_request_url(request) %>
+            <%= button_to "Deny", deny_cat_rental_request_url(request) %>
+          <% else %>
+            <%= request.status %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
 

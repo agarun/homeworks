@@ -2,15 +2,16 @@
   <% if cat.persisted?  %>
    <input type="hidden" name="_method" value="patch">
   <% end %>
+
   <label for="name">Name:</label>
-  <input id="name" type="text" name="cat[name]" value="<%=cat.name%>">  
-  
+  <input id="name" type="text" name="cat[name]" value="<%=cat.name%>">
+
   <label for="sex">Sex</label>
   <input id="male" type="radio" name="cat[sex]" value="M" <%if cat.sex == 'M'%>checked<%end%> >
   <label for="male">Male</label>
   <input id="female" type="radio" name="cat[sex]" value="F" <%if cat.sex == 'F'%>checked<%end%> >
   <label for="female">Female</label>
-  
+
   <label for="color">Color</label>
     <select class="" name="cat[color]">
       <option value="" selected disabled>-- Select a color --</option>
@@ -18,12 +19,12 @@
         <option value="<%= color %>" <%if cat.color == color%>selected<%end%> ><%= color %></option>
       <% end %>
     </select>
-  
+
   <label for="birthday">Birthday</label>
-  <input type="date" name="cat[birth_date]" value="<%=cat.birth_date %>"/>
-  
+  <input id="birthday" type="date" name="cat[birth_date]" value="<%=cat.birth_date %>"/>
+
   <label for="description">Description</label>
   <textarea name="cat[description]" rows="8" cols="80"><%=cat.description%></textarea>
-  
-  <input type="submit" name="" value="Update">
+
+  <input type="submit" name="" value="<%= cat.persisted? ? "Update" : "Create" %>">
 </form>
