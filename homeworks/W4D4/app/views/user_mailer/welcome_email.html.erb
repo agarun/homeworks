@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+
+  <body>
+    <h1>Welcome to 99 Cats!</h1>
+
+    <p>You signed up to the site under the name <%= @user.username %>.</p>
+    <p>Feel free to <a href="">contact us</a> if there was a mistake.</p>
+    <p>Login at <a href="<%= cats_url %>">our site</a>!</p>
+
+    <p>
+      Sincerely,
+      your friends at 99 Cats.
+    </p>
+  </body>
+</html>
