@@ -41,3 +41,7 @@
     <%= link_to 'Make new request', new_cat_rental_request_url(cat_id: @cat.id) %>
   <% end %>
 </div></section>
+
+<% content_for :footer do %>
+  The show page for cats.
+<% end %>
