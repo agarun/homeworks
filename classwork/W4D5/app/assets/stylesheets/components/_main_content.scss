@@ -1,0 +1,127 @@
+article {
+  margin: 17px 0;
+  line-height: 1.4;
+  
+  h1, h2, h3 {
+    line-height: 1;
+    font-weight: bold;
+  }
+  
+  h1:hover, h3:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-style: italic;
+    font-size: 26px;
+  }
+  
+  h2 {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  
+  iframe {
+    padding-bottom: 10px;
+    width: 100%;
+    height: 400px;
+  }
+  
+  ul {
+    margin-left: 15px;
+    list-style-type: disc;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  small {
+    margin: 10px 0;
+    display: block;
+    text-align: center;
+    font-family: $sans-serif;
+    font-size: 9px;
+    color: $light-gray;
+  }
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comments {
+  font-family: $sans-serif;
+  color: $blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  &:after {
+    content: '';
+  }
+}
+
+.fa-comment {
+  color: $blue;
+}
+
+.author, .author-small {
+  padding: 5px 0;
+  color: $light-gray;
+  
+  &-small {
+    font-size: 11px;
+  }
+}
+
+.opinion-section {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 10px;
+  
+  li {
+    margin: 4px;
+  }
+}
+
+.opinion-section-header {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.sign-up {
+  display: flex;
+  font-family: $sans-serif;
+  clear: left;
+  line-height: 1;
+  height: 30px;
+  
+  input {
+    padding: 5px 10px;
+    flex: 1;
+    color: $gray;
+    border: 1px solid $gray;
+  }
+  
+  input::placeholder {
+    color: $light-gray;
+  }
+  
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.hr-space {
+  margin: 10px auto;
+  background-color: $light-gray;
+  width: 50%;
+}
+
+
+

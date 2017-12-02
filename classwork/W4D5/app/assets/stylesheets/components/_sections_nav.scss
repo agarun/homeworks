@@ -1,0 +1,23 @@
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid $light-gray;
+  
+  li {
+    font-family: $sans-serif;
+    padding: 10px;
+  }
+  
+  li:last-of-type{
+    text-transform: uppercase;
+    
+    a:hover{
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+  
+  li a:hover{
+    background-color: $light-gray;
+  }
+}
