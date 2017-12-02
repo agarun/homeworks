@@ -19,10 +19,9 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 4** - [ActiveRecord Movie Queries](https://github.com/agarun/homeworks/tree/master/classwork/W3D4/movie_buff/skeleton), [Poll App](https://github.com/agarun/homeworks/tree/master/classwork/W3D4/polls_app), [Active Record Warmup](https://github.com/agarun/homeworks/tree/master/homeworks/W3D4/active_record_warmup), [N+1 Query Buster](https://github.com/agarun/homeworks/tree/master/homeworks/W3D4/n_%2B_1_buster)  
 **Day 5** - [ActiveRecord Lite](https://github.com/agarun/quale), [Metacorgis](https://github.com/agarun/homeworks/tree/master/homeworks/W3D5)  
 
-## Week 4
-
+## Week 4  
 **Day 1** - [Art Share API](https://github.com/agarun/homeworks/tree/master/classwork/W4D1/art_share_api), [Controllers Intro](https://github.com/agarun/homeworks/tree/master/homeworks/W4D1/controllers)  
 **Day 2** - [99 Cats I](https://github.com/agarun/homeworks/tree/master/classwork/W4D2/ninety_nine_cats_i)  
 **Day 3** - [99 Cats II](https://github.com/agarun/homeworks/tree/master/classwork/W4D3/ninety_nine_cats_ii), [Rails Auth](https://github.com/agarun/homeworks/tree/master/homeworks/W4D3/rails_auth)    
 **Day 4** - [Helpers, Layouts, Partials](https://github.com/agarun/homeworks/tree/master/homeworks/W4D4)  
-**Day 5** - [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
+**Day 5** - [CSS NYTimes](https://github.com/agarun/homeworks/tree/master/classwork/W4D5), [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
