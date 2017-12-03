@@ -27,4 +27,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [NYTimes CSS Clone](https://github.com/agarun/homeworks/tree/master/classwork/W4D5), [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
 
 ## Week 5  
-**Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test)  
+**Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test), [CSS 1](https://github.com/agarun/homeworks/tree/master/homeworks/W5D1/friends-1)  
