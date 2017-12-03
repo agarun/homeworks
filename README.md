@@ -28,3 +28,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
 ## Week 5  
 **Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test), [CSS 1](https://github.com/agarun/homeworks/tree/master/homeworks/W5D1/friends-1)  
+**Day 2** - [Polymorphic Assoications, Concerns](https://github.com/agarun/homeworks/tree/master/homeworks/W5D2)  
