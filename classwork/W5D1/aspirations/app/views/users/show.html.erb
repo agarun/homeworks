@@ -1,0 +1,17 @@
+<% @user.goals.each do |goal| %>
+<% if !goal.private %>
+  <%= goal.goal %>
+
+  <% if goal.user == current_user %>
+    <form action="<%=goal_url(goal)%>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      
+      <input type="submit" name="" value="Remove Goal">
+    </form>
+    
+    <a href="<%= edit_goal_url(goal) %>">Edit Goal</a>
+    <% end %>
+  <% end %>
+<% end %>
+
