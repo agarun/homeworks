@@ -27,6 +27,6 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [NYTimes CSS Clone](https://github.com/agarun/homeworks/tree/master/classwork/W4D5), [CSS Review](https://github.com/agarun/homeworks/tree/master/homeworks/W4D5)  
 
 ## Week 5  
-**Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test), [CSS 1](https://github.com/agarun/homeworks/tree/master/homeworks/W5D1/friends-1)  
+**Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test), [CSS 1](https://github.com/agarun/homeworks/tree/master/homeworks/W5D1/friends-1), [Capybara Specs](https://github.com/agarun/homeworks/tree/master/classwork/W5D1/aspirations)  
 **Day 2** - [Polymorphic Assoications, Concerns](https://github.com/agarun/homeworks/tree/master/homeworks/W5D2)  
 **Day 3** - [RegexOne](https://github.com/agarun/homeworks/tree/master/homeworks/W5D3)  
