@@ -13,7 +13,7 @@ feature 'the signup process' do
     before(:each) do
       sign_up_jerry
     end
-    
+
     scenario 'shows username on the homepage after signup' do
       expect(page).to have_content('jerry')
     end
@@ -24,17 +24,17 @@ feature 'logging in' do
   before(:each) do
     sign_in_jerry
   end
-  
+
   scenario 'shows username on the homepage after login' do
     expect(page).to have_content('jerry')
   end
 
 end
 
-feature 'logging out' do  
+feature 'logging out' do
   scenario 'begins with a logged out state' do
     visit new_user_url
-    
+
     expect(page).to have_content('Sign Up')
     expect(page).to have_content('Sign In')
   end
@@ -42,7 +42,7 @@ feature 'logging out' do
   scenario 'doesn\'t show username on the homepage after logout' do
     sign_in_jerry
     sign_out
-    
+
     expect(page).to_not have_content('jerry')
   end
 end
