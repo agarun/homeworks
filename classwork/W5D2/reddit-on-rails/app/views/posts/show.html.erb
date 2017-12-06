@@ -1,0 +1,24 @@
+<% if @post.url %>
+  <h1> <%= link_to @post.title, @post.url %></h1>
+<% else %>
+  <h1><%= @post.title %></h1>
+<% end %>
+
+<ul>
+  <li>Author: <%= @post.author.username %></li>
+  <li>Content: <%= @post.content %></li>
+</ul>
+
+<ul>
+  <% @all_comments.each do |top_level| %>
+    <% if top_level.parent_comment_id.nil? %>
+      <li><%= render 'comment', comment: top_level %></li>
+    <% end %>
+  <% end %>
+</ul>
+  
+<br>
+<a href="<%= edit_post_url(@post) %>">Edit Post</a>
+<br>
+<a href="<%= new_post_comment_url(@post)%>">Add Comment</a>
+

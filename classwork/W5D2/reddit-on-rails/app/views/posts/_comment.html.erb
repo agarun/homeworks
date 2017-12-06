@@ -1,0 +1,13 @@
+<ul>
+  <a href="<%= comment_url(comment) %>">
+    <%= comment.author.username %>: <%= comment.content %><br>
+  </a>
+    <%= comment.created_at %>
+  <% @all_comments.each do |next_level| %>
+    <% if next_level.parent_comment_id == comment.id %>
+        <li>
+          <%= render 'comment', comment: next_level %>
+        </li>
+    <% end %>
+  <% end %>
+</ul>

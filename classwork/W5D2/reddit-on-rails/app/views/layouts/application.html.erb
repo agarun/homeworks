@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditOnRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li><a href="<%= subs_url %>">All subs</a></li>
+    </ul>
+    
+    <% if logged_in? %>
+      Logged in as <%= current_user.username %>
+      <%= button_to 'Sign Out', session_url, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_url %>
+      <%= link_to 'Sign In', new_session_url %>
+    <% end %>
+    
+    <%= flash[:errors].join("\n") if flash[:errors] %>
+    
+    <%= yield %>
+  </body>
+</html>

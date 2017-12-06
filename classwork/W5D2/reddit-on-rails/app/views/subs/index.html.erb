@@ -1,0 +1,16 @@
+<h1>Sub List</h1>
+
+<% @subs.each do |sub| %>
+  <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+  <ul>
+    <li>Description: <%= sub.description %></li>
+    <li>Mods: <%= sub.mod.username %></li>
+  <% if current_user == sub.mod %>
+    <li><a href="<%= edit_sub_url(sub) %>">Edit Sub</a></li>
+    <li><%= button_to 'Delete Sub', sub_url(sub), method: :delete %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<br>
+<a href="<%= new_sub_url %>">Create a sub</a>

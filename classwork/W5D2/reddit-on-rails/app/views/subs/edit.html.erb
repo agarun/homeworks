@@ -1,0 +1,18 @@
+<h1>Edit Subreddit</h1>
+
+<form action="<%= sub_url(@sub) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label>
+    Title
+  <input type="text" name="sub[title]" value="<%= @sub.title %>">
+  </label>
+  
+  <label>
+    Description
+  <input type="text" name="sub[description]" value="<%= @sub.description %>">
+  </label>
+  
+  <input type="submit" value="Update Subreddit">
+</form>
