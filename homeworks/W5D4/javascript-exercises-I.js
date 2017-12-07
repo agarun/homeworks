@@ -102,6 +102,25 @@ const fizzBuzz = function fizzBuzz(array) {
 
 console.log(fizzBuzz([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]));
 
+// ^ is the bitwise XOR operator
+// performs XOR on each bit pair: x XOR y => 1 if x and y are different
+// e.g. 0 ^ 0 === 0; 1 ^ 1 === 0; 0 ^ 1 === 1; 1 ^ 0 === 1;
+// since 0 is falsy and 1 is truthy, the number is only pushed to the array
+// when 0 ^ 1 or 1 ^ 0, and not when both are the same bits.
+const fizzBuzz2 = function fizzBuzz2(array) {
+  let fizzyBuzzyNumbers = [];
+
+  array.forEach((number) => {
+    if (number % 3 === 0 ^ number % 5 === 0) {
+      fizzyBuzzyNumbers.push(number);
+    }
+  });
+
+  return fizzyBuzzyNumbers;
+};
+
+console.log(fizzBuzz2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]));
+
 const isPrime = function isPrime(number) {
   if (number <= 1) return false;
 
@@ -111,7 +130,6 @@ const isPrime = function isPrime(number) {
 
   return true;
 };
-
 
 console.log(isPrime(2)); // true
 console.log(isPrime(10)); // false
@@ -134,3 +152,21 @@ const sumOfNPrimes = function sumOfNPrimes(n) {
 console.log(sumOfNPrimes(0));
 console.log(sumOfNPrimes(1));
 console.log(sumOfNPrimes(4));
+
+const sumOfNPrimes2 = function sumOfNPrimes2(n) {
+  let numberOfPrimes = 0;
+  let primesSum = 0;
+
+  for (let i = 2; numberOfPrimes < n; i++) {
+    if (isPrime(i)) {
+      numberOfPrimes += 1;
+      primesSum += i;
+    }
+  }
+
+  return primesSum;
+}
+
+console.log(sumOfNPrimes2(0));
+console.log(sumOfNPrimes2(1));
+console.log(sumOfNPrimes2(4));
