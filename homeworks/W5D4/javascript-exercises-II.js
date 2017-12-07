@@ -81,6 +81,8 @@ herd.forEach(Elephant.paradeHelper);
 
 // make a function dinerBreakfast. we want it to return an anonymous closure,
 // which we will be able to use to keep adding breakfast foods to our initial order.
+
+// shared lexical environment when returning & saving `dinerBreakfast`
 const dinerBreakfast = function dinerBreakfast() {
   let firstString = "I'd like cheesy scrambled eggs please";
 
