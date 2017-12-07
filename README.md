@@ -30,3 +30,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 1** - [Sample Music App Specs](https://github.com/agarun/sample-music-app/tree/master/test), [CSS 1](https://github.com/agarun/homeworks/tree/master/homeworks/W5D1/friends-1), [Capybara Specs](https://github.com/agarun/homeworks/tree/master/classwork/W5D1/aspirations)  
 **Day 2** - [Polymorphic Assoications, Concerns](https://github.com/agarun/homeworks/tree/master/homeworks/W5D2), [Reddit Clone](https://github.com/agarun/homeworks/tree/master/classwork/W5D2/reddit-on-rails)  
 **Day 3** - [Rails Lite](https://github.com/agarun/qualia), [RegexOne](https://github.com/agarun/homeworks/tree/master/homeworks/W5D3)  
+**Day 4** - [JavaScript Exercises](https://github.com/agarun/homeworks/tree/master/homeworks/W5D4)  
