@@ -31,4 +31,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 2** - [Polymorphic Assoications, Concerns](https://github.com/agarun/homeworks/tree/master/homeworks/W5D2), [Reddit Clone](https://github.com/agarun/homeworks/tree/master/classwork/W5D2/reddit-on-rails)  
 **Day 3** - [Rails Lite](https://github.com/agarun/qualia), [RegexOne](https://github.com/agarun/homeworks/tree/master/homeworks/W5D3)  
 **Day 4** - [JavaScript Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W5D4), [JavaScript Basics](https://github.com/agarun/homeworks/tree/master/homeworks/W5D4)  
-**Day 5** - [Callbacks and Functions Practice](https://github.com/agarun/homeworks/tree/master/homeworks/W5D5)  
+**Day 5** - [JavaScript Exercises](), [Callbacks and Functions Practice](https://github.com/agarun/homeworks/tree/master/homeworks/W5D5)   
