@@ -32,3 +32,6 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 3** - [Rails Lite](https://github.com/agarun/qualia), [RegexOne](https://github.com/agarun/homeworks/tree/master/homeworks/W5D3)  
 **Day 4** - [JavaScript Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W5D4), [JavaScript Basics](https://github.com/agarun/homeworks/tree/master/homeworks/W5D4)  
 **Day 5** - [JavaScript Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W5D5), [Callbacks and Functions Practice](https://github.com/agarun/homeworks/tree/master/homeworks/W5D5)   
+
+## Week 6  
+**Day 1** - [Canvas, Webpack](https://github.com/agarun/homeworks/tree/master/homeworks/W6D1)  
