@@ -102,7 +102,6 @@ window._randomColorString = function () {
 View.prototype.exercise0 = function removeSquare() {
   // remove the "square" class from every li
   // this should cause the grid to turn into a long list of undecorated `li`s
-  // (just a list of dots)
   $("li").removeClass("square");
 };
 
@@ -115,54 +114,56 @@ View.prototype.exercise1 = function allSquaresOrange() {
 // JS: const squares = document.querySelectorAll(".square");
 // and for each square, square.parentElement.removeChild(square);
 View.prototype.exercise2 = function () {
-  // remove every square
   $(".square").remove();
 };
 
 View.prototype.exercise3 = function () {
   // add an <h1> with the text "i love jquery" under the grid.
   const newH1 = $("<h1>i love jquery</h1>");
+  $("#easel").after(newH1); // under the grid, outside #easel
+  // $("#easel").append(newH1); // under the grid, inside #easel
 };
 
 View.prototype.exercise4 = function () {
-  //Challenge: Write your first name in every other square.
-  //Result: Your name appears in every other square.
+  // write your first name in every other square.
+  let i = 0;
+  $(".square").append(() => {
+    i += 1;
+    return (i % 2 === 0) ? "" : "AA";
+  });
+};
 
-  //your code here!
+View.prototype.exercise4v2 = function () {
+  $(".square:nth-child(even)").text("AA");
 };
 
 View.prototype.exercise5 = function () {
-  //Challenge: Alert the row and column of the square, when the square is clicked.
-  //Result: When a square is clicked, the row and column appear in an alert. for
-  //example: clicking the top left square should alert "0, 0".
-
-  //hint: checkout the addRow function at the bottom of the file: we set the
-  //  "data-pos" of every square
-
-  //your code here!
+  // alert the row and column of the square, when the square is clicked.
+  // when a square is clicked, the row and column appear in an alert.
+  // clicking the top left square should alert "0, 0".
+  $("#easel").on("click", "li.square", (event) => {
+    const square = $(event.currentTarget);
+    const coords = square.data("pos");
+    alert(coords);
+  });
 };
 
+// callback runs once for each square
+// alternatively solution is to invoke callback and use `jQuery#each`
 View.prototype.exercise6 = function () {
-  //Challenge: Give every square a random color!
-  //Result: Every square becomes a color as soon as this code runs. The grid
-  //should become a beautiful rainbow of colors.
-
-  //hint: use window._randomColorString() (defined at top) to get a random color!
-
-  //your code here!
+  // give every square a random color!
+  // every square becomes a color as soon as this code runs.
+  $(".square").css("background-color", window._randomColorString);
 };
 
 View.prototype.exercise7 = function(){
-  //Challenge: When your mouse goes over a square, console log its color.
-  //Result: When the mouse goes over a square its color should appear in the
-  //console. The color won"t be the color"s name, but its rbg value.
-  //You should push the button for exercise 6 first to try it on the
-  //rainbow.
-
-  //your code here!
+  // when your mouse goes over a square, console log its color.
+  $("#easel").on("mouseover", ".square", (event) => {
+    const square = $(event.currentTarget);
+    const color = square.css("background-color");
+    console.log(color);
+  });
 };
-
-
 
 View.prototype.setupEasel = function () {
   const $addRowButton = $("<button>").html("Add a row");
