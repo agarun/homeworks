@@ -35,4 +35,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
 ## Week 6  
 **Day 1** - [Canvas, Webpack](https://github.com/agarun/homeworks/tree/master/homeworks/W6D1)  
-**Day 2** - [Intro jQuery Challenges]()  
+**Day 2** - [Intro jQuery Challenges](https://github.com/agarun/homeworks/tree/master/homeworks/W6D2)   
