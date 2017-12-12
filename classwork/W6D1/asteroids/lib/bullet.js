@@ -1,4 +1,4 @@
-const Util = require("./util"); 
+const Util = require("./util");
 const MovingObject = require("./moving_object");
 const Asteroid = require("./asteroid");
 
@@ -15,7 +15,7 @@ function Bullet(game, pos, vel) {
     radius: this.constructor.RADIUS,
     color: this.constructor.COLOR,
   };
-  
+
   MovingObject.call(this, options);
 }
 

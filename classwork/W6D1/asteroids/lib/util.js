@@ -14,7 +14,12 @@ const Util = {
   // Scale the length of a vector by the given amount.
   scale (vec, m) {
     return [vec[0] * m, vec[1] * m];
-  }
+  },
+  norm(vec) {
+    return Math.sqrt(
+      Math.pow(vec[0], 2) + Math.pow(vec[1], 2),
+    );
+  },
 };
 
 module.exports = Util;

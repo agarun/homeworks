@@ -1,19 +1,16 @@
-// function sum() { 
-//   // return arguments.reduce( (el, acc) => {
-//   //   return el + acc;
-//   // }, 0); 
+// function sum() {
 //   let sum = 0;
 //   for (var i = 0; i < arguments.length; i++) {
 //     sum += arguments[i];
 //   }
 //   return sum;
-// 
+//
 // }
 
 // function sum(...numbers) {
 //   return numbers.reduce( (el, acc) => {
 //      return el + acc;
-//    }, 0); 
+//    }, 0);
 // }
 
 // console.log(sum(1,2,3));
@@ -38,7 +35,9 @@ Function.prototype.myBind = function () {
     return that.apply(allArgs[0], allArgs.slice(1));
   };
 };
-// could also use Array.from and slice
+// could also use Array.from and slice to create args arrays from
+// the array-like arguments
+// i.e. const bindArgs = Array.from(arguments).slice(1);
 
 class Cat {
   constructor(name) {
@@ -46,7 +45,6 @@ class Cat {
   }
 
   says(sound, person) {
-    // console.log(this);
     console.log(`${this.name} says ${sound} to ${person}!`);
     return true;
   }
@@ -82,10 +80,10 @@ markov.says.myBind(breakfast)("meow", "a tree");
 
 const curriedSum = function (numArgs) {
   let numbers = [];
-  
+
   return function _curriedSum(newNum) {
     numbers.push(newNum);
-    
+
     if (numbers.length === numArgs) {
       return numbers.reduce((el, acc) => el + acc, 0);
     } else {
@@ -100,10 +98,10 @@ const curriedSum = function (numArgs) {
 Function.prototype.curry = function (numArgs) {
   let args = [];
   const originalFunction = this;
-  
+
   return function _curry(newArg) {
     args.push(newArg);
-    
+
     if (args.length === numArgs) {
       return originalFunction(...args);
       // return originalFunction.bind(originalFunction)(...args);

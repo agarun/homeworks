@@ -1,8 +1,10 @@
 const MovingObject = require("./moving_object");
-const Util = require("./util"); 
-const Ship = require("./ship"); 
+const Util = require("./util");
+const Ship = require("./ship");
+const Bullet = require("./bullet");
 
 Util.inherits(Asteroid, MovingObject);
+
 Asteroid.COLOR = 'maroon';
 Asteroid.RADIUS = 30;
 
@@ -14,8 +16,7 @@ function Asteroid(pos, game) {
     color: this.constructor.COLOR,
     game: game
   };
-  
-  // call the MovingObject superconstructor
+
   MovingObject.call(this, options);
 }
 

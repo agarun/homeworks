@@ -9,11 +9,11 @@ Game.NUM_ASTEROIDS = 8;
 function Game() {
   this.asteroids = [];
   this.bullets = [];
-  
+
   for (var i = 0; i < this.constructor.NUM_ASTEROIDS; i++) {
     this.addAsteroids();
   }
-  
+
   this.ship = new Ship(this.randomPosition(), this);
 }
 
@@ -38,21 +38,21 @@ Game.prototype.moveObjects = function () {
 
 Game.prototype.wrap = function (pos) {
   let newPos = pos;
-  
+
   if (pos[0] > this.constructor.DIM_X) {
     newPos[0] = 0;
   }
   if (pos[1] > this.constructor.DIM_Y) {
     newPos[1] = 0;
   }
-  
+
   if (pos[0] < 0) {
     newPos[0] = this.constructor.DIM_X;
   }
   if (pos[1] < 0) {
     newPos[1] = this.constructor.DIM_Y;
   }
-  
+
   return newPos;
 };
 
@@ -69,13 +69,8 @@ Game.prototype.checkCollisions = function () {
 
 Game.prototype.step = function () {
   this.moveObjects();
-  // this.checkCollisions();
+  this.checkCollisions();
 };
-
-// Game.prototype.remove = function (asteroid) {
-//   let indexOfAsteroid = this.asteroids.indexOf(asteroid);
-//   if (indexOfAsteroid !== -1) this.asteroids.splice(indexOfAsteroid, 1);
-// };
 
 Game.prototype.allObjects = function () {
   return this.asteroids.concat([this.ship], this.bullets);

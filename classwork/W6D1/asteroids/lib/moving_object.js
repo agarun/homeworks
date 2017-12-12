@@ -1,4 +1,4 @@
-const Util = require("./util"); 
+const Util = require("./util");
 
 function MovingObject(options) {
   this.pos = options.pos;
@@ -22,33 +22,31 @@ MovingObject.prototype.move = function () {
 };
 
 MovingObject.prototype.isCollidedWith = function (otherObject) {
-  // Two circles have collided if the distance between their center 
+  // Two circles have collided if the distance between their center
   // points is less than the sum of their radii.
   const x1 = this.pos[0];
   const y1 = this.pos[1];
-  
+
   const x2 = otherObject.pos[0];
   const y2 = otherObject.pos[1];
-  
+
   const distanceBetweenCenter = Math.sqrt(
     Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2)
   );
-  
+
   const sumOfRadii = this.radius + otherObject.radius;
-  
+
   if (distanceBetweenCenter < sumOfRadii) {
     console.log(otherObject);
     this.collideWith(otherObject);
     return true;
   }
-  
+
   return false;
 };
 
 MovingObject.prototype.collideWith = function (otherObject) {
   // duck typing
-  // this.game.remove(otherObject);
-  // this.game.remove(this);
 };
 
 module.exports = MovingObject;

@@ -1,5 +1,5 @@
-const Util = require("./util"); 
-const Bullet = require("./bullet"); 
+const Util = require("./util");
+const Bullet = require("./bullet");
 const MovingObject = require("./moving_object");
 
 Util.inherits(Ship, MovingObject);
@@ -15,8 +15,7 @@ function Ship(pos, game) {
     radius: this.constructor.RADIUS,
     color: this.constructor.COLOR,
   };
-  
-  // call the MovingObject superconstructor
+
   MovingObject.call(this, options);
 }
 
