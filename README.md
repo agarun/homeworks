@@ -34,5 +34,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [JavaScript Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W5D5), [Callbacks and Functions Practice](https://github.com/agarun/homeworks/tree/master/homeworks/W5D5)   
 
 ## Week 6  
-**Day 1** - [Canvas, Webpack](https://github.com/agarun/homeworks/tree/master/homeworks/W6D1)  
+**Day 1** - [Asteroids, JS Arguments](https://github.com/agarun/homeworks/tree/master/classwork/W6D1), [Canvas, Webpack](https://github.com/agarun/homeworks/tree/master/homeworks/W6D1)  
 **Day 2** - [Intro jQuery Challenges](https://github.com/agarun/homeworks/tree/master/homeworks/W6D2)   
