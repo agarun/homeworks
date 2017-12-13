@@ -1,0 +1,70 @@
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 48px;
+}
+
+.grid li {
+  float: left;
+  height: 180px;
+  width: 180px;
+  list-style: none;
+  border: 10px solid gray;
+}
+
+.grid li:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.grid {
+  width: 600px;
+  background-color: LemonChiffon;
+  border: 10px solid gray;
+  margin: 0 auto;
+  padding: 0;
+  height: 600px;
+}
+
+.x:before {
+  content: 'X';
+  font-size: 150px;
+  position: relative;
+  top: 3%;
+  left: 20%;
+  font-family: sans-serif;
+}
+
+.o, .x {
+  background-color: white;
+}
+
+.o:before {
+  content: 'O';
+  font-size: 150px;
+  position: relative;
+  top: 3%;
+  left: 18%;
+  font-family: sans-serif;
+}
+
+.grid li.o-winner,
+.grid li.x-winner,
+.grid li.o-winner:hover,
+.grid li.x-winner:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+.grid li.o-loser,
+.grid li.x-loser,
+.grid li.o-loser:hover,
+.grid li.x-loser:hover  {
+  background-color: white;
+  color: red;
+}
+
+.tie {
+  color: pink;
+}
