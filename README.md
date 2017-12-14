@@ -37,3 +37,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 1** - [Asteroids, JS Arguments](https://github.com/agarun/homeworks/tree/master/classwork/W6D1), [Canvas, Webpack](https://github.com/agarun/homeworks/tree/master/homeworks/W6D1)  
 **Day 2** - [jQuery Tic Tac Toe, Towers of Hanoi](https://github.com/agarun/homeworks/tree/master/classwork/W6D2), [Intro jQuery Challenges](https://github.com/agarun/homeworks/tree/master/homeworks/W6D2)   
 **Day 3** - [AJAX Twitter](https://github.com/agarun/homeworks/tree/master/classwork/W6D3), [AJAX Requests](https://github.com/agarun/homeworks/tree/master/homeworks/W6D3)  
+**Day 4** - [DOM Exercises](https://github.com/agarun/homeworks/tree/master/homeworks/W6D4)  
