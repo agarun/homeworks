@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+body {
+ font-family: sans-serif;
+}
+
+.users-search {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.users-search:before {
+  content: "Search:";
+  font-weight: bold;
+}
+
+.users-search input {
+  margin-bottom: 30px;
+}
+
+.users {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.users li {
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  vertical-align: bottom;
+  line-height: 45px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: gray;
+}
+
+.users button {
+  border: 0;
+  background-color: cadetblue;
+  color: white;
+  margin: 10px;
+  padding: 6px;
+  border-radius: 30px;
+}
+
+.users button:hover {
+  background-color: gray;
+}
