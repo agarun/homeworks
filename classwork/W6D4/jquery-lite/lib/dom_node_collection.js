@@ -1,118 +1,120 @@
 class DOMNodeCollection {
-  constructor(htmlArr) {
-    this.htmlArr = htmlArr;
+  constructor(nodes) {
+    this.nodes = nodes;
   }
-  
-  static create(htmlArr) { 
-    return new DOMNodeCollection(htmlArr);
+
+  static create(nodes) {
+    return new DOMNodeCollection(nodes);
   }
-  
+
+  each(callback) {
+    this.nodes.forEach(callback);
+  }
+
   html(string) {
     if (string) {
-      this.htmlArr.forEach((el) =>{
+      this.nodes.forEach((el) =>{
         el.innerHTML = string;
       });
     } else {
-      return this.htmlArr[0].innerHTML;
+      return this.nodes[0].innerHTML;
     }
   }
-  
+
   empty() {
-    this.htmlArr.forEach((el) => {
+    // or: `this.html("")`
+    this.nodes.forEach((el) => {
       el.innerHTML = "";
     });
   }
-  
-  append(arg) {
-    if (typeof arg === 'string') {
-      this.htmlArr.forEach((el) => {
-        el.innerHTML += arg;
-        // el.append(arg);
+
+  append(children) {
+    if (typeof children === 'string') {
+      this.nodes.forEach((el) => {
+        el.innerHTML += children;
       });
-    } else if (arg instanceof DOMNodeCollection) {
-      this.htmlArr.forEach((htmlEl) => {
-        arg.htmlArr.forEach((argEl) => {
-          htmlEl.innerHTML += argEl.outerHTML;
-          // htmlEl.append(argEl);
+    } else if (children instanceof DOMNodeCollection) {
+      this.nodes.forEach((htmlEl) => {
+        children.nodes.forEach((childrenEl) => {
+          htmlEl.innerHTML += childrenEl.outerHTML;
         });
       });
-    } else if (arg instanceof HTMLElement) {
-      this.htmlArr.forEach((htmlEl) => {
-        // htmlEl.append(arg);
-        htmlEl.innerHTML += arg.outerHTML;
+    } else if (children instanceof HTMLElement) {
+      this.nodes.forEach((htmlEl) => {
+        htmlEl.innerHTML += children.outerHTML;
       });
     }
   }
-  
-  attr(arg, desired) {
-    if (!desired) {
-      return this.htmlArr[0].getAttribute(arg);
+
+  attr(key, val) {
+    if (!val) {
+      return this.nodes[0].getAttribute(key);
     } else {
-      this.htmlArr.forEach((htmlEl)=> {
-        htmlEl.setAttribute(arg, desired);
+      this.nodes.forEach((htmlEl) => {
+        htmlEl.setAttribute(key, val);
       });
     }
   }
-  
-  addClass(classname) {
-    this.htmlArr.forEach((htmlEl) => {
-      htmlEl.classList.add(classname);
+
+  addClass(className) {
+    this.nodes.forEach((htmlEl) => {
+      htmlEl.classList.add(className);
     });
   }
-  
-  removeClass(classname) {
-    this.htmlArr.forEach((htmlEl) => {
-      htmlEl.classList.remove(classname);
+
+  removeClass(className) {
+    this.nodes.forEach((htmlEl) => {
+      htmlEl.classList.remove(className);
     });
   }
-  
+
   children() {
-    let childArr = [];
-    this.htmlArr.forEach((htmlEl) => {
-      childArr = childArr.concat(Array.from(htmlEl.children));
+    let childNodes = [];
+    this.nodes.forEach((htmlEl) => {
+      childNodes = childNodes.concat(Array.from(htmlEl.children));
     });
-    return this.constructor.create(childArr);
+    return this.constructor.create(childNodes);
   }
-  
+
   parent() {
-    let parentArr = [];
-    this.htmlArr.forEach((htmlEl) => {
-      if (!parentArr.includes(htmlEl.parentNode)) {
-        parentArr = parentArr.concat(htmlEl.parentNode);
+    let parentNodes = [];
+    this.nodes.forEach((htmlEl) => {
+      if (!parentNodes.includes(htmlEl.parentNode)) {
+        parentNodes = parentNodes.concat(htmlEl.parentNode);
       }
     });
-    return this.constructor.create(parentArr);
+    return this.constructor.create(parentNodes);
   }
-  
+
   find(selector) {
     let matchingSelectors = [];
-    
-    this.htmlArr.forEach((htmlEl) => {
+
+    this.nodes.forEach((htmlEl) => {
       matchingSelectors = matchingSelectors.concat(
         Array.from(htmlEl.querySelectorAll(selector))
       );
     });
-    
+
     return this.constructor.create(matchingSelectors);
   }
-  
+
   remove() {
-    this.htmlArr.forEach((htmlEl) => {
+    this.nodes.forEach((htmlEl) => {
       htmlEl.remove();
     });
-    this.htmlArr = [];
+    this.nodes = [];
   }
-  
-  on(eventType, callback){
-    this.htmlArr.forEach((htmlEl) => {
+
+  on(eventType, callback) {
+    this.nodes.forEach((htmlEl) => {
       htmlEl.callback = htmlEl.callback || {};
       htmlEl.callback[eventType] = callback;
       htmlEl.addEventListener(eventType, callback);
     });
   }
-  
-  off(eventType){
-    this.htmlArr.forEach((htmlEl) => {
+
+  off(eventType) {
+    this.nodes.forEach((htmlEl) => {
       const callback = htmlEl.callback[eventType];
       htmlEl.removeEventListener(eventType, callback);
     });
