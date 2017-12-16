@@ -1,0 +1,119 @@
+h1 {
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.clock {
+  width: 300px;
+  border: 2px solid black;
+  background-color: orange;
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.time, .date {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 24px;
+}
+
+.header-tabs {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.header-tabs header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-tabs header h2 {
+  padding: 10px;
+  border: 2px solid black;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: cyan;
+  border-right: none;
+}
+
+.header-tabs header h2:last-child {
+  border-right: 2px solid black;
+}
+
+.header-tabs header h2:hover {
+  background-color: black;
+  color: white;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.header-tabs article {
+  align-items: center;
+  background-color: cyan;
+  min-height: 100px;
+  border: 2px solid black;
+  border-top: 0;
+  width: 107px;
+  padding: 50px;
+}
+
+#selected-tab {
+  font-weight: 700;
+  border-bottom: 0;
+}
+
+.weather {
+  background-color: lightgreen;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+  font-family: 'Lato', sans-serif;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.autocomplete {
+  background-color: violet;
+  margin: 0 auto;
+  border: 2px solid black;
+  width: 200px;
+  min-height: 400px;
+  text-align: center;
+}
+
+.autocomplete input {
+  margin: 20px 0;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.autocomplete ul {
+  list-style-position: inside;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  list-style: square;
+}
+
+.autocomplete li {
+  color: white;
+  margin-bottom: 10px;
+  max-width: 50px;
+  margin-left: 60px;
+  text-align: left;
+  text-shadow: 1px 1px 2px black;
+}
+
+.autocomplete li:hover {
+  cursor: pointer;
+}
