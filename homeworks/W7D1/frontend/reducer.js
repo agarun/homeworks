@@ -4,6 +4,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  Object.freeze(state);
   switch (action.type) {
     case "SWITCH_CURRENCY":
       return Object.assign(
