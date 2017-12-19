@@ -41,4 +41,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [React Widgets Intro](https://github.com/agarun/homeworks/tree/master/classwork/W6D5), [npm, React Calculator](https://github.com/agarun/homeworks/tree/master/homeworks/W6D5)   
 
 ## Week 7  
-**Day 1** - [React/Redux Currency Exchange](https://github.com/agarun/homeworks/tree/master/homeworks/W7D1)  
+**Day 1** - [React/Redux Todos (I)](), [React/Redux Currency Exchanging](https://github.com/agarun/homeworks/tree/master/homeworks/W7D1)  
+**Day 2** - [Redux: Intro to Middleware](https://github.com/agarun/homeworks/tree/master/homeworks/W7D2)  
