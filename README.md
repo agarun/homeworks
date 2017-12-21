@@ -43,5 +43,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 ## Week 7  
 **Day 1** - [React/Redux Todos (I)](https://github.com/agarun/homeworks/tree/master/classwork/W7D1), [React/Redux Currency Exchanging](https://github.com/agarun/homeworks/tree/master/homeworks/W7D1)  
 **Day 2** - [React/Redux Todos (II)](https://github.com/agarun/homeworks/tree/master/classwork/W7D2), [Redux: Intro to Middleware](https://github.com/agarun/homeworks/tree/master/homeworks/W7D2)  
-**Day 3** - [Giphy GIF React/Redux Searcher](https://github.com/agarun/homeworks/tree/master/homeworks/W7D3)  
+**Day 3** - [React/Redux Pokedex (I)](https://github.com/agarun/homeworks/tree/master/classwork/W7D3), [Giphy GIF React/Redux Searcher](https://github.com/agarun/homeworks/tree/master/homeworks/W7D3)  
 **Day 4** - [React Router Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W7D4)  
