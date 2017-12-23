@@ -46,3 +46,6 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 3** - [React/Redux Pokedex (I)](https://github.com/agarun/homeworks/tree/master/classwork/W7D3), [Giphy GIF React/Redux Searcher](https://github.com/agarun/homeworks/tree/master/homeworks/W7D3)  
 **Day 4** - [React/Redux Pokedex (II)](https://github.com/agarun/homeworks/tree/master/classwork/W7D4), [React Router Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W7D4)  
 **Day 5** - [Benchbnb](https://github.com/agarun/benches)  
+
+## Week 8-9
+[Foton](https://github.com/agarun/foton), a clone of 500px built using Rails, React, and Redux.
