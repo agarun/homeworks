@@ -48,4 +48,6 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [Benchbnb](https://github.com/agarun/benches)  
 
 ## Week 8-9
+**Day 1** - [JotItDown UI/UX Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W8D1)  
+**Onwards**:  
 [Foton](https://github.com/agarun/foton), a clone of 500px built using Rails, React, and Redux.
