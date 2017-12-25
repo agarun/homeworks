@@ -1,0 +1,73 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('splash.jpg');
+  background-size: cover;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  align-self: center;
+}
+
+.nav-container {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+nav {
+  height: 50px;
+  position: fixed;
+  background-color: #032019;
+  width: 100vw;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  text-transform: uppercase;
+  font-size: 12px;
+  align-self: center;
+}
+
+.links li {
+  margin-left: 20px;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+header {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  font-size: 42px;
+  color: white;
+}
+
+button {
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: 5px solid #59cda4;
+}
+
+button:hover {
+  background-color: #59cda4;
+}
