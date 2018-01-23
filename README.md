@@ -51,3 +51,6 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 [Foton](https://github.com/agarun/foton), a clone of 500px built using Rails, React, and Redux  
 [kume](https://github.com/agarun/kume), a visualization of k-means clustering with image data   
 [Qualia](https://github.com/agarun/qualia), a small framework that reproduces some of the core functionality provided by Rails and ActiveRecord  
+
+## Week 11
+**Day 1** - [Static Arrays, Dynamic Arrays, Ring Buffer, Max Queue](https://github.com/agarun/homeworks/tree/master/classwork/W11D1)
