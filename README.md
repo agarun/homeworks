@@ -54,4 +54,5 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 
 ## Week 11
 **Day 1** - [Static Arrays, Dynamic Arrays, Ring Buffer, Max Queue](https://github.com/agarun/homeworks/tree/master/classwork/W11D1)  
-**Day 2** - [Int sets, hash functions, hash sets, linked lists, hash maps, LRU cache](https://github.com/agarun/homeworks/tree/master/classwork/W11D2)
+**Day 2** - [Int sets, hash functions, hash sets, linked lists, hash maps, LRU cache](https://github.com/agarun/homeworks/tree/master/classwork/W11D2)  
+**Day 3** - [Heaps, heapsort](https://github.com/agarun/homeworks/tree/master/classwork/W11D3)
