@@ -26,9 +26,8 @@ def k_largest_elements(array, k)
 
   array.each do |el|
     binary_min_heap.push(el)
+    binary_min_heap.extract if binary_min_heap.store.length == k + 1
   end
-
-  (array.length - k).times { binary_min_heap.extract }
 
   binary_min_heap.store
 end
