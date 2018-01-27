@@ -22,7 +22,7 @@ class BinarySearchTree
       nil
     elsif value == tree_node.value
       tree_node
-    # TODO: refactor...
+    # TODO: refactor
     elsif value <= tree_node.value
       find(value, tree_node.left)
     else
@@ -30,7 +30,7 @@ class BinarySearchTree
     end
   end
 
-  # TODO refactor...
+  # TODO refactor
   def delete(value)
     tree_node = find(value)
 
