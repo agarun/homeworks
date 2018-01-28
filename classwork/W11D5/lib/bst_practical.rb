@@ -1,14 +1,14 @@
 def kth_largest(tree_node, k)
-  arr = in_order_traversal(tree_node)
-  arr[k * -1]
+  ordered_tree = in_order_traversal(tree_node)
+  ordered_tree[k * -1]
 end
 
-def in_order_traversal(tree_node = @root, arr = [])
+def in_order_traversal(tree_node = @root, ordered_tree = [])
   return unless tree_node
 
-  in_order_traversal(tree_node.left, arr)
-  arr << tree_node
-  in_order_traversal(tree_node.right, arr)
+  in_order_traversal(tree_node.left, ordered_tree)
+  ordered_tree << tree_node
+  in_order_traversal(tree_node.right, ordered_tree)
 
-  arr
+  ordered_tree
 end
