@@ -58,3 +58,4 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 3** - [Heaps, heapsort](https://github.com/agarun/homeworks/tree/master/classwork/W11D3)  
 **Day 4** - [Quicksort](https://github.com/agarun/homeworks/tree/master/classwork/W11D4)  
 **Day 5** - [Binary Search Trees](https://github.com/agarun/homeworks/tree/master/classwork/W11D5)    
+**Day 6** - [Dynamic Programming](https://github.com/agarun/homeworks/tree/master/classwork/W11D6)    
