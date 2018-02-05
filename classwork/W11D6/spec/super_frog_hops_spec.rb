@@ -13,9 +13,9 @@ describe 'Super Frog Hops' do
   it 'handles base cases' do
     expect(dp.super_frog_hops(1, 1)).to eq([[1]])
     expect(dp.super_frog_hops(2, 1)).to eq([[1, 1]])
-    expect(dp.super_frog_hops(2, 2).sort).to eq([[1, 1], [2]])
+    expect(DynamicProgramming.new.super_frog_hops(2, 2).sort).to eq([[1, 1], [2]])
   end
-
+  
   it 'handles cases where k < n' do
     expect(dp.super_frog_hops(6, 4).sort).to eq(ans1)
     expect(dp.super_frog_hops(10, 4).sort).to eq(ans2)
