@@ -12,6 +12,8 @@ class DynamicProgramming
       0 => [[]],
       1 => [[1]]
     }
+
+    @knapsack_cache = {}
   end
 
   # b1 = 1
@@ -120,12 +122,56 @@ class DynamicProgramming
   end
 
   def knapsack(weights, values, capacity)
+    return 0 if weights.empty? || values.empty? || capacity.zero?
 
+    table = knapsack_table(weights, values, capacity)
+    max_capacity = table.last
+    max_capacity.last
   end
 
   # Helper method for bottom-up implementation
   def knapsack_table(weights, values, capacity)
+    soln = Array.new(capacity + 1) { [] }
 
+    (0..capacity).each do |cap|
+      values.length.times do |idx|
+        if cap.zero?
+          soln[cap][idx] = 0
+        elsif idx.zero?
+          soln[cap][idx] = weights[0] > cap ? 0 : values[0]
+        else
+          previous_soln_at_cap =
+            soln[cap][idx - 1]
+          previous_soln_and_this_item =
+            weights[idx] > cap ? 0 : soln[cap - weights[idx]][idx - 1] + values[idx]
+          soln[cap][idx] = [previous_soln_at_cap, previous_soln_and_this_item].max
+        end
+      end
+    end
+
+    soln
+  end
+
+  # top-down
+  def knapsack_table(weights, values, capacity)
+    return @knapsack_cache[capacity] if @knapsack_cache[capacity]
+
+    if weights[0] > capacity
+      knapsack(weights.drop(1), values.drop(1), capacity)
+    else
+      previous = knapsack(weights.drop(1), values.drop(1), capacity - weights[0])
+      current = knapsack(weights.drop(1), values.drop(1), capacity)
+
+      # use either the previous item solution at this capacity,
+      # or the previous item solution from a smaller bag plus this item's value.
+      max = [previous + values[0], current].max
+      @knapsack_cache[capacity] = max
+    end
+  end
+
+  def knapsack(weights, values, capacity)
+    return 0 if weights.empty? || values.empty? || capacity.zero?
+    knapsack_table(weights, values, capacity)
   end
 
   def maze_solver(maze, start_pos, end_pos)
