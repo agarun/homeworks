@@ -12,7 +12,7 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 4** - [Complexity](https://github.com/agarun/homeworks/tree/master/homeworks/W2D4), [Complexity Exercises](https://github.com/agarun/homeworks/tree/master/classwork/W2D4)  
 **Day 5** - [Sets, Linked Lists, Hash Map, LRU Cache, Dynamic Array](https://github.com/agarun/homeworks/tree/master/classwork/W2D5/lib), [Basic LRU Cache](https://github.com/agarun/homeworks/tree/master/homeworks/W2D5)   
 
-## Week 3
+## Week 3  
 **Day 1** - [SQLBolt 1-12](https://github.com/agarun/homeworks/tree/master/homeworks/W3D1), [SQLZoo 1-9](https://github.com/agarun/homeworks/tree/master/classwork/W3D1)  
 **Day 2** - [ORMs](https://github.com/agarun/homeworks/tree/master/homeworks/W3D2), [Questions](https://github.com/agarun/homeworks/tree/master/classwork/W3D2)   
 **Day 3** - [URL Shortener](https://github.com/agarun/homeworks/tree/master/classwork/W3D3/URLShortener), [Rails Demo](https://github.com/agarun/homeworks/tree/master/homeworks/W3D3/neighborhood), [Rails Associations](https://github.com/agarun/homeworks/tree/master/classwork/W3D3/rails_associations_exercise)   
@@ -48,6 +48,14 @@ Homeworks, notes, and daily exercises from a semester at AppAcademy!
 **Day 5** - [Benchbnb](https://github.com/agarun/benches)  
 
 ## Week 8-9
-**Day 1** - [JotItDown UI/UX Exercise](https://github.com/agarun/homeworks/tree/master/homeworks/W8D1)  
-**Onwards**:  
-[Foton](https://github.com/agarun/foton), a clone of 500px built using Rails, React, and Redux.
+[Foton](https://github.com/agarun/foton), a clone of 500px built using Rails, React, and Redux  
+[kume](https://github.com/agarun/kume), a visualization of k-means clustering with image data   
+[Qualia](https://github.com/agarun/qualia), a small framework that reproduces some of the core functionality provided by Rails and ActiveRecord  
+
+## Week 11
+**Day 1** - [Static Arrays, Dynamic Arrays, Ring Buffer, Max Queue](https://github.com/agarun/homeworks/tree/master/classwork/W11D1)  
+**Day 2** - [Int sets, hash functions, hash sets, linked lists, hash maps, LRU cache](https://github.com/agarun/homeworks/tree/master/classwork/W11D2)  
+**Day 3** - [Heaps, heapsort](https://github.com/agarun/homeworks/tree/master/classwork/W11D3)  
+**Day 4** - [Quicksort](https://github.com/agarun/homeworks/tree/master/classwork/W11D4)  
+**Day 5** - [Binary Search Trees](https://github.com/agarun/homeworks/tree/master/classwork/W11D5)    
+**Day 6** - [Dynamic Programming](https://github.com/agarun/homeworks/tree/master/classwork/W11D6)    
